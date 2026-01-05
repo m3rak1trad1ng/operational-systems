@@ -8,16 +8,19 @@
 
   <style>
     :root{
-      --bg:#eef2f7;
-      --card:#fbfcfe;
+      --navy:#0b1f3a;
+      --navy2:#102a4e;
+      --bg:#e9eef5;         /* clearly not white */
+      --card:#f2f6fb;       /* tinted surface */
+      --panel:#ffffff;      /* crisp interior cards */
       --text:#0b1220;
       --muted:#4b5563;
-      --line:#e5e7eb;
-      --accent:#0f2a5f;   /* navy */
-      --accent2:#1f4c99;  /* softer navy */
-      --shadow: 0 12px 32px rgba(15, 23, 42, .10);
-      --radius:14px;
+      --line:#cfd8e3;
+      --accent:#2b63c8;
+      --shadow: 0 18px 40px rgba(15, 23, 42, .18);
+      --radius:16px;
     }
+
     *{box-sizing:border-box}
     body{
       margin:0;
@@ -25,103 +28,143 @@
       background: var(--bg);
       color: var(--text);
     }
+
+    /* Dark header band (major visual change) */
+    .header{
+      background: linear-gradient(135deg, var(--navy), var(--navy2));
+      padding: 22px 0;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
     .wrap{
-      max-width: 920px;
-      margin: 64px auto;
+      max-width: 980px;
+      margin: 0 auto;
       padding: 0 24px;
     }
+
     .topbar{
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:14px;
-      margin-bottom: 18px;
+      color:#fff;
     }
+
     .brand{
       display:flex;
       align-items:center;
       gap:12px;
     }
+
     .mark{
       width:44px;height:44px;
       border-radius:12px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.18);
       color:#fff;
       display:flex;
       align-items:center;
       justify-content:center;
       font-weight:800;
       letter-spacing:.5px;
-      box-shadow: 0 10px 18px rgba(15, 42, 95, .20);
     }
+
     .brandname{
       font-weight:800;
       letter-spacing:.2px;
     }
+
     .pill{
-      border:1px solid var(--line);
-      background:#fff;
+      border:1px solid rgba(255,255,255,.22);
+      background: rgba(255,255,255,.08);
       padding:10px 14px;
       border-radius:999px;
-      color: var(--muted);
+      color: rgba(255,255,255,.92);
       font-size:13px;
+      white-space:nowrap;
     }
+
+    /* Main card sits "into" the header like a real site */
+    .main{
+      margin-top: -26px;
+      padding-bottom: 60px;
+    }
+
     .card{
       background: var(--card);
       border:1px solid var(--line);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 40px;
+      padding: 44px;
     }
+
     h1{
       margin: 0 0 14px 0;
-      font-size: 36px;
-      letter-spacing: -0.4px;
+      font-size: 40px;
+      letter-spacing: -0.6px;
     }
+
     .lead{
-      margin:0 0 10px 0;
+      margin:0 0 12px 0;
       font-size:16px;
-      line-height:1.7;
+      line-height:1.75;
       color: var(--muted);
-      max-width: 78ch;
+      max-width: 82ch;
     }
+
     .badges{
       display:flex;
       flex-wrap:wrap;
       gap:10px;
-      margin: 18px 0 22px 0;
+      margin: 18px 0 24px 0;
     }
+
     .badge{
       font-size:13px;
-      color: var(--accent);
-      background: rgba(15,42,95,.07);
-      border:1px solid rgba(15,42,95,.18);
-      padding:8px 12px;
+      color:#102a4e;
+      background: rgba(43,99,200,.10);
+      border:1px solid rgba(43,99,200,.22);
+      padding:9px 12px;
       border-radius:999px;
       cursor: default;
     }
+
     hr{
       margin: 22px 0;
       border:none;
       border-top: 1px solid var(--line);
     }
-    .grid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 16px;
-    }
+
     .panel{
       border:1px solid var(--line);
-      border-radius: 12px;
-      padding: 16px;
-      background:#fff;
+      border-radius: 14px;
+      padding: 18px;
+      background: var(--panel);
     }
+
     .panel h2{
-      margin:0 0 10px 0;
+      margin:0 0 12px 0;
       font-size: 14px;
-      letter-spacing:.4px;
+      letter-spacing:.45px;
       text-transform: uppercase;
+      color:#111827;
     }
+
+    .kv{
+      display:grid;
+      grid-template-columns: 150px 1fr;
+      gap: 8px 14px;
+      margin-top: 6px;
+    }
+    .k{color:#6b7280;font-size:13px}
+    .v{color:#111827;font-size:13px}
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
     .row{
       display:flex;
       align-items:center;
@@ -129,42 +172,39 @@
       gap: 12px;
       flex-wrap:wrap;
     }
+
     .meta{
       margin:0;
       color: var(--muted);
       font-size: 15px;
       line-height: 1.6;
     }
+
     .btn{
       display:inline-block;
-      padding:10px 14px;
-      border-radius: 10px;
+      padding:11px 14px;
+      border-radius: 12px;
       color:#fff;
       text-decoration:none;
-      font-weight:700;
+      font-weight:800;
       font-size:14px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 10px 18px rgba(15,42,95,.18);
+      background: linear-gradient(135deg, var(--navy), #1c4aa0);
+      box-shadow: 0 12px 20px rgba(11,31,58,.25);
       white-space:nowrap;
     }
+
     .link{
-      color: var(--accent2);
-      font-weight:700;
+      color: #1c4aa0;
+      font-weight:800;
       text-decoration:none;
     }
+
     .policy-links a{
       display:inline-block;
-      margin-right: 16px;
+      margin-right: 18px;
       margin-bottom: 8px;
     }
-    .kv{
-      display:grid;
-      grid-template-columns: 140px 1fr;
-      gap: 8px 14px;
-      margin-top: 6px;
-    }
-    .k{color:#6b7280;font-size:13px}
-    .v{color:#111827;font-size:13px}
+
     footer{
       margin-top: 18px;
       font-size: 13px;
@@ -173,87 +213,95 @@
       justify-content:flex-start;
       padding: 0 6px;
     }
-    @media (max-width: 760px){
+
+    @media (max-width: 900px){
       .grid{grid-template-columns:1fr;}
-      .card{padding:24px;}
-      h1{font-size:30px;}
-      .kv{grid-template-columns: 1fr;}
+      .card{padding:26px;}
+      h1{font-size:32px;}
+      .kv{grid-template-columns:1fr;}
+      .main{margin-top:-18px;}
     }
   </style>
 </head>
 
 <body>
-  <div class="wrap">
 
-    <div class="topbar">
-      <div class="brand">
-        <div class="mark">OS</div>
-        <div class="brandname">Operational Systems</div>
-      </div>
-      <div class="pill">Administrative Reference Site</div>
-    </div>
-
-    <div class="card">
-      <h1>Operational Systems, LLC</h1>
-
-      <p class="lead">
-        Operational Systems, LLC designs and maintains structured digital marketing systems, standardized templates,
-        and operational assets for service-based businesses.
-      </p>
-
-      <p class="lead">
-        The focus is repeatable, governed systems that support consistent execution and long-term operational use.
-        Products are distributed through independently branded platforms and delivered as one-time purchases.
-      </p>
-
-      <p class="lead">
-        This site does not offer public sales and is maintained solely for administrative reference and verification.
-      </p>
-
-      <div class="badges">
-        <div class="badge">Administrative Reference</div>
-        <div class="badge">No Public Sales</div>
-        <div class="badge">Administrative Contact</div>
-      </div>
-
-      <div class="panel">
-        <h2>Company Summary</h2>
-        <div class="kv">
-          <div class="k">Entity</div><div class="v">Operational Systems, LLC</div>
-          <div class="k">Purpose</div><div class="v">Administrative reference & verification</div>
-          <div class="k">Offering</div><div class="v">Digital systems, templates, and operational assets</div>
-          <div class="k">Distribution</div><div class="v">Independently branded platforms</div>
-          <div class="k">Public sales</div><div class="v">Not offered on this site</div>
+  <div class="header">
+    <div class="wrap">
+      <div class="topbar">
+        <div class="brand">
+          <div class="mark">OS</div>
+          <div class="brandname">Operational Systems</div>
         </div>
-      </div>
-
-      <hr>
-
-      <div class="grid">
-        <div class="panel">
-          <h2>Contact</h2>
-          <div class="row">
-            <p class="meta"><strong>Email:</strong> admin@operational-systems.com</p>
-            <a class="btn" href="mailto:admin@operational-systems.com">Email Admin</a>
-          </div>
-          <p class="meta" style="margin-top:10px;">Typical response: 1–2 business days.</p>
-        </div>
-
-        <div class="panel">
-          <h2>Policies</h2>
-          <p class="meta policy-links">
-            <a class="link" href="/privacy.html">Privacy Policy</a>
-            <a class="link" href="/terms.html">Terms of Use</a>
-          </p>
-          <p class="meta" style="margin-top:10px;">No analytics or tracking are used on this site.</p>
-        </div>
+        <div class="pill">Administrative Reference Site</div>
       </div>
     </div>
-
-    <footer>
-      © Operational Systems, LLC. All rights reserved.
-    </footer>
-
   </div>
+
+  <div class="main">
+    <div class="wrap">
+      <div class="card">
+        <h1>Operational Systems, LLC</h1>
+
+        <p class="lead">
+          Operational Systems, LLC designs and maintains structured digital marketing systems, standardized templates,
+          and operational assets for service-based businesses.
+        </p>
+
+        <p class="lead">
+          The focus is repeatable, governed systems that support consistent execution and long-term operational use.
+          Products are distributed through independently branded platforms and delivered as one-time purchases.
+        </p>
+
+        <p class="lead">
+          This site does not offer public sales and is maintained solely for administrative reference and verification.
+        </p>
+
+        <div class="badges">
+          <div class="badge">Administrative Reference</div>
+          <div class="badge">No Public Sales</div>
+          <div class="badge">Administrative Contact</div>
+        </div>
+
+        <div class="panel">
+          <h2>Company Summary</h2>
+          <div class="kv">
+            <div class="k">Entity</div><div class="v">Operational Systems, LLC</div>
+            <div class="k">Purpose</div><div class="v">Administrative reference & verification</div>
+            <div class="k">Offering</div><div class="v">Digital systems, templates, and operational assets</div>
+            <div class="k">Distribution</div><div class="v">Independently branded platforms</div>
+            <div class="k">Public sales</div><div class="v">Not offered on this site</div>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="grid">
+          <div class="panel">
+            <h2>Contact</h2>
+            <div class="row">
+              <p class="meta"><strong>Email:</strong> admin@operational-systems.com</p>
+              <a class="btn" href="mailto:admin@operational-systems.com">Email Admin</a>
+            </div>
+            <p class="meta" style="margin-top:10px;">Typical response: 1–2 business days.</p>
+          </div>
+
+          <div class="panel">
+            <h2>Policies</h2>
+            <p class="meta policy-links">
+              <a class="link" href="/privacy.html">Privacy Policy</a>
+              <a class="link" href="/terms.html">Terms of Use</a>
+            </p>
+            <p class="meta" style="margin-top:10px;">No analytics or tracking are used on this site.</p>
+          </div>
+        </div>
+
+        <footer>
+          © Operational Systems, LLC. All rights reserved.
+        </footer>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
