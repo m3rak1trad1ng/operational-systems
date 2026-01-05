@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <title>Operational Systems, LLC</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Operational Systems, LLC — administrative reference site.">
+  <meta name="description" content="Operational Systems, LLC — administrative information.">
 
   <style>
     :root{
       --bg:#0f172a;          /* charcoal background */
       --surface:#111827;     /* main surface */
-      --card:#1f2937;        /* cards */
+      --card:#1f2937;        /* card surface */
       --panel:#273449;       /* inner panels */
       --text:#e5e7eb;
       --muted:#9ca3af;
@@ -30,9 +30,10 @@
       color: var(--text);
     }
 
+    /* Dark header band (no icon, no pill) */
     .header{
       background: linear-gradient(135deg, #0b1220, #111827);
-      padding: 26px 0;
+      padding: 20px 0;
       border-bottom: 1px solid rgba(255,255,255,.06);
     }
 
@@ -45,45 +46,18 @@
     .topbar{
       display:flex;
       align-items:center;
-      justify-content:space-between;
+      justify-content:flex-start;
       gap:14px;
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-    }
-
-    .mark{
-      width:44px;height:44px;
-      border-radius:12px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      color:#0b1220;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:900;
-      letter-spacing:.6px;
     }
 
     .brandname{
       font-weight:800;
       letter-spacing:.2px;
-    }
-
-    .pill{
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      padding:10px 14px;
-      border-radius:999px;
-      color: var(--muted);
-      font-size:13px;
-      white-space:nowrap;
+      font-size:18px;
     }
 
     .main{
-      margin-top: -28px;
+      margin-top: -18px;
       padding-bottom: 60px;
     }
 
@@ -96,7 +70,7 @@
     }
 
     h1{
-      margin: 0 0 16px 0;
+      margin: 0 0 14px 0;
       font-size: 38px;
       letter-spacing: -0.6px;
     }
@@ -109,21 +83,15 @@
       max-width: 84ch;
     }
 
-    .badges{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin: 20px 0 26px 0;
-    }
-
-    .badge{
-      font-size:13px;
-      color: var(--accent);
-      background: rgba(96,165,250,.10);
-      border:1px solid rgba(96,165,250,.25);
-      padding:9px 12px;
-      border-radius:999px;
-      cursor: default;
+    .statement{
+      margin: 18px 0 22px 0;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(96,165,250,.25);
+      background: rgba(96,165,250,.08);
+      color: var(--accent2);
+      font-size: 14px;
+      line-height: 1.6;
     }
 
     hr{
@@ -149,7 +117,7 @@
 
     .kv{
       display:grid;
-      grid-template-columns: 150px 1fr;
+      grid-template-columns: 160px 1fr;
       gap: 8px 14px;
       margin-top: 6px;
     }
@@ -216,7 +184,7 @@
       .card{padding:26px;}
       h1{font-size:30px;}
       .kv{grid-template-columns:1fr;}
-      .main{margin-top:-18px;}
+      .main{margin-top:-10px;}
     }
   </style>
 </head>
@@ -226,11 +194,7 @@
   <div class="header">
     <div class="wrap">
       <div class="topbar">
-        <div class="brand">
-          <div class="mark">OS</div>
-          <div class="brandname">Operational Systems</div>
-        </div>
-        <div class="pill">Administrative Reference Site</div>
+        <div class="brandname">Operational Systems</div>
       </div>
     </div>
   </div>
@@ -248,26 +212,20 @@
 
         <p class="lead">
           The focus is repeatable, governed systems that support consistent execution and long-term operational use.
-          Products are distributed through independently branded platforms and delivered as one-time purchases.
+          Products are distributed via independently branded websites and delivered as one-time purchases.
         </p>
 
-        <p class="lead">
-          This site does not offer public sales and is maintained solely for administrative reference and verification.
-        </p>
-
-        <div class="badges">
-          <div class="badge">Administrative Reference</div>
-          <div class="badge">No Public Sales</div>
-          <div class="badge">Administrative Contact</div>
+        <div class="statement">
+          Administrative information only. No public sales are offered on this site. Administrative contact is available below.
         </div>
 
         <div class="panel">
           <h2>Company Summary</h2>
           <div class="kv">
             <div class="k">Entity</div><div class="v">Operational Systems, LLC</div>
+            <div class="k">Business Type</div><div class="v">Digital systems & templates (service-based industries)</div>
             <div class="k">Purpose</div><div class="v">Administrative reference & verification</div>
-            <div class="k">Offering</div><div class="v">Digital systems, templates, and operational assets</div>
-            <div class="k">Distribution</div><div class="v">Independently branded platforms</div>
+            <div class="k">Distribution</div><div class="v">Independently branded websites</div>
             <div class="k">Public sales</div><div class="v">Not offered on this site</div>
           </div>
         </div>
