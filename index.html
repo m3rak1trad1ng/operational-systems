@@ -83,13 +83,13 @@
       font-size:16px;
       line-height:1.7;
       color: var(--muted);
-      max-width: 74ch;
+      max-width: 78ch;
     }
     .badges{
       display:flex;
       flex-wrap:wrap;
       gap:10px;
-      margin: 18px 0 26px 0;
+      margin: 18px 0 22px 0;
     }
     .badge{
       font-size:13px;
@@ -100,13 +100,13 @@
       border-radius:999px;
     }
     hr{
-      margin: 26px 0;
+      margin: 22px 0;
       border:none;
       border-top: 1px solid var(--line);
     }
     .grid{
       display:grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1.2fr .8fr;
       gap: 16px;
     }
     .panel{
@@ -156,6 +156,14 @@
       margin-right: 16px;
       margin-bottom: 8px;
     }
+    .kv{
+      display:grid;
+      grid-template-columns: 140px 1fr;
+      gap: 8px 14px;
+      margin-top: 6px;
+    }
+    .k{color:#64748b;font-size:13px}
+    .v{color:#111827;font-size:13px}
     footer{
       margin-top: 18px;
       font-size: 13px;
@@ -168,6 +176,7 @@
       .grid{grid-template-columns:1fr;}
       .card{padding:24px;}
       h1{font-size:30px;}
+      .kv{grid-template-columns: 1fr;}
     }
   </style>
 </head>
@@ -187,26 +196,35 @@
       <h1>Operational Systems, LLC</h1>
 
       <p class="lead">
-        Operational Systems, LLC is a U.S.-based company that designs, builds, and maintains structured digital
-        marketing systems, standardized templates, and operational assets for service-based businesses.
+        Operational Systems, LLC designs and maintains structured digital marketing systems, standardized templates,
+        and operational assets for service-based businesses.
       </p>
 
       <p class="lead">
-        The company focuses on creating repeatable, governed systems that replace ad-hoc marketing, inconsistent
-        execution, and one-off design work. These systems are intended to support long-term operational use,
-        internal consistency, and scalable execution across teams and organizations.
+        The focus is repeatable, governed systems that support consistent execution and long-term operational use.
+        Products are distributed through independently branded platforms and delivered as one-time purchases.
       </p>
 
       <p class="lead">
-        Products developed by Operational Systems, LLC are distributed through independently branded platforms
-        and are delivered as one-time purchases. This website does not offer public sales and exists solely for
-        administrative reference, verification, and compliance purposes.
+        This site does not offer public sales and is maintained solely for administrative reference, verification,
+        and compliance purposes.
       </p>
 
       <div class="badges">
         <div class="badge">Verification & Compliance</div>
-        <div class="badge">No Public Sales on This Site</div>
-        <div class="badge">Support Contact Available</div>
+        <div class="badge">No Public Sales</div>
+        <div class="badge">Administrative Contact</div>
+      </div>
+
+      <div class="panel">
+        <h2>Company Summary</h2>
+        <div class="kv">
+          <div class="k">Entity</div><div class="v">Operational Systems, LLC</div>
+          <div class="k">Purpose</div><div class="v">Administrative reference & verification</div>
+          <div class="k">Offering</div><div class="v">Digital systems, templates, and operational assets</div>
+          <div class="k">Distribution</div><div class="v">Independently branded platforms</div>
+          <div class="k">Public sales</div><div class="v">Not offered on this site</div>
+        </div>
       </div>
 
       <hr>
@@ -218,7 +236,7 @@
             <p class="meta"><strong>Email:</strong> admin@operational-systems.com</p>
             <a class="btn" href="mailto:admin@operational-systems.com">Email Admin</a>
           </div>
-          <p class="meta" style="margin-top:10px;">Response time: 1–2 business days.</p>
+          <p class="meta" style="margin-top:10px;">Typical response: 1–2 business days.</p>
         </div>
 
         <div class="panel">
@@ -227,7 +245,10 @@
             <a class="link" href="/privacy.html">Privacy Policy</a>
             <a class="link" href="/terms.html">Terms of Use</a>
           </p>
-          <p class="meta" style="margin-top:10px;">This site does not use analytics or tracking.</p>
+          <p class="meta" style="margin-top:10px;">
+            No analytics or tracking.<br>
+            Policies last updated: 2026-01-04
+          </p>
         </div>
       </div>
     </div>
