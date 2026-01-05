@@ -4,20 +4,20 @@
   <meta charset="utf-8">
   <title>Operational Systems, LLC</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Operational Systems, LLC — administrative information.">
+  <meta name="description" content="Operational Systems, LLC — administrative reference information.">
 
   <style>
     :root{
-      --bg:#0f172a;          /* charcoal background */
-      --surface:#111827;     /* main surface */
-      --card:#1f2937;        /* card surface */
-      --panel:#273449;       /* inner panels */
+      --bg:#0f172a;
+      --surface:#111827;
+      --card:#1f2937;
+      --panel:#273449;
       --text:#e5e7eb;
       --muted:#9ca3af;
       --line:#374151;
-      --accent:#60a5fa;      /* muted blue */
+      --accent:#60a5fa;
       --accent2:#93c5fd;
-      --shadow: 0 20px 50px rgba(0,0,0,.45);
+      --shadow: 0 18px 44px rgba(0,0,0,.42);
       --radius:16px;
     }
 
@@ -30,35 +30,10 @@
       color: var(--text);
     }
 
-    /* Dark header band (no icon, no pill) */
-    .header{
-      background: linear-gradient(135deg, #0b1220, #111827);
-      padding: 20px 0;
-      border-bottom: 1px solid rgba(255,255,255,.06);
-    }
-
     .wrap{
       max-width: 980px;
       margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    .topbar{
-      display:flex;
-      align-items:center;
-      justify-content:flex-start;
-      gap:14px;
-    }
-
-    .brandname{
-      font-weight:800;
-      letter-spacing:.2px;
-      font-size:18px;
-    }
-
-    .main{
-      margin-top: -18px;
-      padding-bottom: 60px;
+      padding: 54px 24px 60px;
     }
 
     .card{
@@ -70,7 +45,7 @@
     }
 
     h1{
-      margin: 0 0 14px 0;
+      margin: 0 0 16px 0;
       font-size: 38px;
       letter-spacing: -0.6px;
     }
@@ -80,18 +55,18 @@
       font-size:16px;
       line-height:1.75;
       color: var(--muted);
-      max-width: 84ch;
+      max-width: 86ch;
     }
 
     .statement{
       margin: 18px 0 22px 0;
       padding: 12px 14px;
       border-radius: 12px;
-      border: 1px solid rgba(96,165,250,.25);
+      border: 1px solid rgba(96,165,250,.22);
       background: rgba(96,165,250,.08);
       color: var(--accent2);
       font-size: 14px;
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
     hr{
@@ -117,7 +92,7 @@
 
     .kv{
       display:grid;
-      grid-template-columns: 160px 1fr;
+      grid-template-columns: 170px 1fr;
       gap: 8px 14px;
       margin-top: 6px;
     }
@@ -142,7 +117,13 @@
       margin:0;
       color: var(--muted);
       font-size: 15px;
-      line-height: 1.6;
+      line-height: 1.65;
+    }
+
+    a{
+      color: var(--accent2);
+      text-decoration: none;
+      font-weight: 800;
     }
 
     .btn{
@@ -154,14 +135,8 @@
       font-weight:900;
       font-size:14px;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 12px 24px rgba(0,0,0,.35);
+      box-shadow: 0 12px 22px rgba(0,0,0,.34);
       white-space:nowrap;
-    }
-
-    .link{
-      color: var(--accent2);
-      font-weight:800;
-      text-decoration:none;
     }
 
     .policy-links a{
@@ -170,13 +145,22 @@
       margin-bottom: 8px;
     }
 
-    footer{
+    .footer{
       margin-top: 22px;
+      border-top: 1px solid var(--line);
+      padding-top: 18px;
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
       font-size: 13px;
       color: #9ca3af;
-      display:flex;
-      justify-content:flex-start;
-      padding: 0 6px;
+    }
+
+    .footer-links a{
+      font-weight: 800;
+      margin-left: 14px;
     }
 
     @media (max-width: 900px){
@@ -184,79 +168,80 @@
       .card{padding:26px;}
       h1{font-size:30px;}
       .kv{grid-template-columns:1fr;}
-      .main{margin-top:-10px;}
+      .wrap{padding-top:34px;}
+      .footer{justify-content:flex-start;}
+      .footer-links a{margin-left:0;margin-right:14px;}
     }
   </style>
 </head>
 
 <body>
 
-  <div class="header">
-    <div class="wrap">
-      <div class="topbar">
-        <div class="brandname">Operational Systems</div>
+  <div class="wrap">
+    <div class="card">
+
+      <h1>Operational Systems, LLC</h1>
+
+      <p class="lead">
+        Operational Systems, LLC designs and maintains structured digital marketing systems, standardized templates,
+        and operational assets for service-based businesses.
+      </p>
+
+      <p class="lead">
+        The focus is repeatable, governed systems that support consistent execution and long-term operational use.
+        Products are distributed via independently branded websites and delivered as one-time purchases.
+      </p>
+
+      <div class="statement">
+        Administrative information only. No public sales are offered on this site.<br>
+        For verification requests, contact: <a href="mailto:admin@operational-systems.com">admin@operational-systems.com</a><br>
+        This site is informational only and does not process transactions.
       </div>
-    </div>
-  </div>
 
-  <div class="main">
-    <div class="wrap">
-      <div class="card">
+      <div class="panel">
+        <h2>Company Summary</h2>
+        <div class="kv">
+          <div class="k">Entity</div><div class="v">Operational Systems, LLC</div>
+          <div class="k">Business Type</div><div class="v">Digital systems, templates & operational assets</div>
+          <div class="k">Purpose</div><div class="v">Administrative reference & verification</div>
+          <div class="k">Distribution</div><div class="v">Independently branded websites</div>
+          <div class="k">Public sales</div><div class="v">Not offered on this site</div>
+        </div>
+      </div>
 
-        <h1>Operational Systems, LLC</h1>
+      <hr>
 
-        <p class="lead">
-          Operational Systems, LLC designs and maintains structured digital marketing systems, standardized templates,
-          and operational assets for service-based businesses.
-        </p>
-
-        <p class="lead">
-          The focus is repeatable, governed systems that support consistent execution and long-term operational use.
-          Products are distributed via independently branded websites and delivered as one-time purchases.
-        </p>
-
-        <div class="statement">
-          Administrative information only. No public sales are offered on this site. Administrative contact is available below.
+      <div class="grid">
+        <div class="panel">
+          <h2>Contact</h2>
+          <div class="row">
+            <p class="meta"><strong>Email:</strong> <a href="mailto:admin@operational-systems.com">admin@operational-systems.com</a></p>
+            <a class="btn" href="mailto:admin@operational-systems.com">Email Admin</a>
+          </div>
+          <p class="meta" style="margin-top:10px;">Typical response: 1–2 business days.</p>
         </div>
 
         <div class="panel">
-          <h2>Company Summary</h2>
-          <div class="kv">
-            <div class="k">Entity</div><div class="v">Operational Systems, LLC</div>
-            <div class="k">Business Type</div><div class="v">Digital systems & templates (service-based industries)</div>
-            <div class="k">Purpose</div><div class="v">Administrative reference & verification</div>
-            <div class="k">Distribution</div><div class="v">Independently branded websites</div>
-            <div class="k">Public sales</div><div class="v">Not offered on this site</div>
-          </div>
+          <h2>Policies</h2>
+          <p class="meta policy-links">
+            <a href="/privacy.html">Privacy Policy</a>
+            <a href="/terms.html">Terms of Use</a>
+          </p>
+          <p class="meta" style="margin-top:10px;">
+            No cookies, analytics, or tracking are used on this site.<br>
+            Privacy requests: <a href="mailto:admin@operational-systems.com">admin@operational-systems.com</a>
+          </p>
         </div>
-
-        <hr>
-
-        <div class="grid">
-          <div class="panel">
-            <h2>Contact</h2>
-            <div class="row">
-              <p class="meta"><strong>Email:</strong> admin@operational-systems.com</p>
-              <a class="btn" href="mailto:admin@operational-systems.com">Email Admin</a>
-            </div>
-            <p class="meta" style="margin-top:10px;">Typical response: 1–2 business days.</p>
-          </div>
-
-          <div class="panel">
-            <h2>Policies</h2>
-            <p class="meta policy-links">
-              <a class="link" href="/privacy.html">Privacy Policy</a>
-              <a class="link" href="/terms.html">Terms of Use</a>
-            </p>
-            <p class="meta" style="margin-top:10px;">No analytics or tracking are used on this site.</p>
-          </div>
-        </div>
-
-        <footer>
-          © Operational Systems, LLC. All rights reserved.
-        </footer>
-
       </div>
+
+      <div class="footer">
+        <div>© Operational Systems, LLC. All rights reserved.</div>
+        <div class="footer-links">
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms of Use</a>
+        </div>
+      </div>
+
     </div>
   </div>
 
