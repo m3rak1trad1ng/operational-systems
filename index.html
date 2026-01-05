@@ -8,32 +8,32 @@
 
   <style>
     :root{
-      --navy:#0b1f3a;
-      --navy2:#102a4e;
-      --bg:#e9eef5;         /* clearly not white */
-      --card:#f2f6fb;       /* tinted surface */
-      --panel:#ffffff;      /* crisp interior cards */
-      --text:#0b1220;
-      --muted:#4b5563;
-      --line:#cfd8e3;
-      --accent:#2b63c8;
-      --shadow: 0 18px 40px rgba(15, 23, 42, .18);
+      --bg:#0f172a;          /* charcoal background */
+      --surface:#111827;     /* main surface */
+      --card:#1f2937;        /* cards */
+      --panel:#273449;       /* inner panels */
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --line:#374151;
+      --accent:#60a5fa;      /* muted blue */
+      --accent2:#93c5fd;
+      --shadow: 0 20px 50px rgba(0,0,0,.45);
       --radius:16px;
     }
 
     *{box-sizing:border-box}
+
     body{
       margin:0;
       font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
+      background: linear-gradient(180deg, #0b1220, var(--bg));
       color: var(--text);
     }
 
-    /* Dark header band (major visual change) */
     .header{
-      background: linear-gradient(135deg, var(--navy), var(--navy2));
-      padding: 22px 0;
-      border-bottom: 1px solid rgba(255,255,255,.08);
+      background: linear-gradient(135deg, #0b1220, #111827);
+      padding: 26px 0;
+      border-bottom: 1px solid rgba(255,255,255,.06);
     }
 
     .wrap{
@@ -47,7 +47,6 @@
       align-items:center;
       justify-content:space-between;
       gap:14px;
-      color:#fff;
     }
 
     .brand{
@@ -59,14 +58,13 @@
     .mark{
       width:44px;height:44px;
       border-radius:12px;
-      background: rgba(255,255,255,.10);
-      border: 1px solid rgba(255,255,255,.18);
-      color:#fff;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color:#0b1220;
       display:flex;
       align-items:center;
       justify-content:center;
-      font-weight:800;
-      letter-spacing:.5px;
+      font-weight:900;
+      letter-spacing:.6px;
     }
 
     .brandname{
@@ -75,62 +73,61 @@
     }
 
     .pill{
-      border:1px solid rgba(255,255,255,.22);
-      background: rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
       padding:10px 14px;
       border-radius:999px;
-      color: rgba(255,255,255,.92);
+      color: var(--muted);
       font-size:13px;
       white-space:nowrap;
     }
 
-    /* Main card sits "into" the header like a real site */
     .main{
-      margin-top: -26px;
+      margin-top: -28px;
       padding-bottom: 60px;
     }
 
     .card{
-      background: var(--card);
+      background: linear-gradient(180deg, var(--card), var(--surface));
       border:1px solid var(--line);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 44px;
+      padding: 46px;
     }
 
     h1{
-      margin: 0 0 14px 0;
-      font-size: 40px;
+      margin: 0 0 16px 0;
+      font-size: 38px;
       letter-spacing: -0.6px;
     }
 
     .lead{
-      margin:0 0 12px 0;
+      margin:0 0 14px 0;
       font-size:16px;
       line-height:1.75;
       color: var(--muted);
-      max-width: 82ch;
+      max-width: 84ch;
     }
 
     .badges{
       display:flex;
       flex-wrap:wrap;
       gap:10px;
-      margin: 18px 0 24px 0;
+      margin: 20px 0 26px 0;
     }
 
     .badge{
       font-size:13px;
-      color:#102a4e;
-      background: rgba(43,99,200,.10);
-      border:1px solid rgba(43,99,200,.22);
+      color: var(--accent);
+      background: rgba(96,165,250,.10);
+      border:1px solid rgba(96,165,250,.25);
       padding:9px 12px;
       border-radius:999px;
       cursor: default;
     }
 
     hr{
-      margin: 22px 0;
+      margin: 26px 0;
       border:none;
       border-top: 1px solid var(--line);
     }
@@ -147,7 +144,7 @@
       font-size: 14px;
       letter-spacing:.45px;
       text-transform: uppercase;
-      color:#111827;
+      color:#f3f4f6;
     }
 
     .kv{
@@ -156,8 +153,8 @@
       gap: 8px 14px;
       margin-top: 6px;
     }
-    .k{color:#6b7280;font-size:13px}
-    .v{color:#111827;font-size:13px}
+    .k{color:#9ca3af;font-size:13px}
+    .v{color:#e5e7eb;font-size:13px}
 
     .grid{
       display:grid;
@@ -182,19 +179,19 @@
 
     .btn{
       display:inline-block;
-      padding:11px 14px;
+      padding:11px 16px;
       border-radius: 12px;
-      color:#fff;
+      color:#0b1220;
       text-decoration:none;
-      font-weight:800;
+      font-weight:900;
       font-size:14px;
-      background: linear-gradient(135deg, var(--navy), #1c4aa0);
-      box-shadow: 0 12px 20px rgba(11,31,58,.25);
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 12px 24px rgba(0,0,0,.35);
       white-space:nowrap;
     }
 
     .link{
-      color: #1c4aa0;
+      color: var(--accent2);
       font-weight:800;
       text-decoration:none;
     }
@@ -206,9 +203,9 @@
     }
 
     footer{
-      margin-top: 18px;
+      margin-top: 22px;
       font-size: 13px;
-      color: #6b7280;
+      color: #9ca3af;
       display:flex;
       justify-content:flex-start;
       padding: 0 6px;
@@ -217,7 +214,7 @@
     @media (max-width: 900px){
       .grid{grid-template-columns:1fr;}
       .card{padding:26px;}
-      h1{font-size:32px;}
+      h1{font-size:30px;}
       .kv{grid-template-columns:1fr;}
       .main{margin-top:-18px;}
     }
@@ -241,6 +238,7 @@
   <div class="main">
     <div class="wrap">
       <div class="card">
+
         <h1>Operational Systems, LLC</h1>
 
         <p class="lead">
@@ -299,6 +297,7 @@
         <footer>
           © Operational Systems, LLC. All rights reserved.
         </footer>
+
       </div>
     </div>
   </div>
