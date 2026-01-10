@@ -32,7 +32,8 @@
       --linkActive:#0b1220;
 
       --max:980px;
-      --contentMax:78ch; /* ✅ meaningful column width (matches your other site style) */
+      --contentMax:900px; /* shared column width for hero + panel */
+      --heroCopyMax:78ch; /* main-page style readable width */
     }
 
     *{ box-sizing:border-box; }
@@ -92,7 +93,7 @@
       color:#0b1220;
     }
 
-    /* ✅ Hero copy column matches panel width */
+    /* Hero block aligns to the same “column” as panel, like main page */
     .hero-block{
       max-width: var(--contentMax);
       margin: 0 auto;
@@ -101,11 +102,16 @@
 
     .lead{
       margin:0;
+      max-width: var(--heroCopyMax); /* prevent ugly long lines + weird wraps */
       font-size:16px;
       line-height:1.75;
       color:var(--muted);
       font-weight:500;
-      text-wrap:pretty;
+
+      /* IMPORTANT: remove “pretty” wrapping (causes the weird orphan lines) */
+      text-wrap: normal;
+      overflow-wrap: normal;
+      word-break: normal;
     }
     .lead + .lead{ margin-top:12px; }
 
@@ -119,9 +125,10 @@
       box-shadow:var(--panelShadow);
     }
 
-    .section{ padding:14px 0; }
-    .section:first-child{ padding-top:0; }
-    .section:last-child{ padding-bottom:0; }
+    /* no dividers — just spacing rhythm */
+    .section{ padding: 14px 0; }
+    .section:first-child{ padding-top: 0; }
+    .section:last-child{ padding-bottom: 0; }
 
     .section h2{
       margin:0 0 9px 0;
@@ -151,7 +158,8 @@
       .wrap{ padding:18px 16px 86px; }
       h1{ font-size:32px; letter-spacing:-0.7px; }
       .hero-block{ max-width:100%; }
-      .panel{ max-width:100%; }
+      .panel{ max-width: 100%; }
+      .lead{ max-width: 100%; }
     }
   </style>
 </head>
