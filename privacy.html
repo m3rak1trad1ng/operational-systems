@@ -32,7 +32,7 @@
       --linkActive:#0b1220;
 
       --max:980px;
-      --contentMax:900px; /* shared column width for hero + panel */
+      --contentMax:78ch; /* ✅ meaningful column width (matches your other site style) */
     }
 
     *{ box-sizing:border-box; }
@@ -65,7 +65,7 @@
       gap:18px;
       font-size:13px;
       font-weight:800;
-      margin:0 0 26px 0; /* ✅ more breathing room */
+      margin:0 0 26px 0;
     }
     .policy-nav a{
       color:var(--link);
@@ -80,11 +80,11 @@
 
     header{
       text-align:center;
-      margin-top: 2px;
+      margin-top:2px;
     }
 
     h1{
-      margin:0 0 16px 0; /* ✅ a touch more space before copy */
+      margin:0 0 16px 0;
       font-size:46px;
       line-height:1.06;
       letter-spacing:-1px;
@@ -92,7 +92,7 @@
       color:#0b1220;
     }
 
-    /* ✅ Hero copy column matches panel width (anchors the page) */
+    /* ✅ Hero copy column matches panel width */
     .hero-block{
       max-width: var(--contentMax);
       margin: 0 auto;
@@ -119,12 +119,10 @@
       box-shadow:var(--panelShadow);
     }
 
-    /* ✅ Slightly more internal rhythm; no dividers */
-    .section{ padding: 14px 0; }
-    .section:first-child{ padding-top: 0; }
-    .section:last-child{ padding-bottom: 0; }
+    .section{ padding:14px 0; }
+    .section:first-child{ padding-top:0; }
+    .section:last-child{ padding-bottom:0; }
 
-    /* ✅ Soften headers: tiny size drop + slightly calmer spacing */
     .section h2{
       margin:0 0 9px 0;
       font-size:12.5px;
@@ -153,7 +151,7 @@
       .wrap{ padding:18px 16px 86px; }
       h1{ font-size:32px; letter-spacing:-0.7px; }
       .hero-block{ max-width:100%; }
-      .panel{ max-width: 100%; }
+      .panel{ max-width:100%; }
     }
   </style>
 </head>
