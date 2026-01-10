@@ -14,8 +14,8 @@
   <style>
     :root{
       /* ✅ Operational Systems colorway (distinct from Real Estate) */
-      --bg: #cfd7e2;               /* cool slate background */
-      --frame: #eef2f7;            /* slightly cooler frame */
+      --bg: #cfd7e2;
+      --frame: #eef2f7;
       --frameBorder: rgba(15, 23, 42, 0.28);
       --frameShadow: 0 28px 80px rgba(15, 23, 42, 0.18);
 
@@ -23,6 +23,9 @@
       --panelBg: #e8eef7;
       --panelBorder: rgba(100,116,139,.32);
       --panelShadow: 0 14px 34px rgba(15,23,42,.10);
+
+      /* ✅ Slight emphasis variant for primary panel (Contact) */
+      --panelBgStrong: #e2ebf7;
 
       --text: #0b1220;
       --muted: #42566d;
@@ -84,9 +87,9 @@
       color: #0b1220;
     }
 
-    /* Hero copy: LEFT aligned (admin/doc tone) */
+    /* ✅ Hero copy: slightly narrower (more admin/doc tone) */
     .hero-blocks{
-      max-width: 78ch;
+      max-width: 70ch;          /* was 78ch */
       margin: 0 auto 18px auto;
       text-align: left;
     }
@@ -106,7 +109,6 @@
       border-top: 1px solid var(--line);
     }
 
-    /* Panels: tinted, lighter borders */
     .panel{
       border: 1px solid var(--panelBorder);
       border-radius: 14px;
@@ -199,18 +201,27 @@
       font-weight: 800;
     }
 
-    /* Operating Model section */
+    /* ✅ Operating Model bullets tightened */
     .bullets{
       margin: 0;
       padding-left: 18px;
       color: var(--muted);
       font-size: 15px;
-      line-height: 1.72;
+      line-height: 1.68;
     }
-    .bullets li{ margin: 8px 0; }
+    .bullets li{ margin: 6px 0; } /* was 8px */
     .bullets li::marker{ color: rgba(91,111,135,.85); }
 
-    /* Footer: no redundant links */
+    /* ✅ De-emphasize secondary (Policies) / emphasize primary (Contact) */
+    .panel.primary{
+      background: var(--panelBgStrong);
+    }
+    .panel.secondary{
+      background: #edf3fb; /* slightly lighter/flatter than base */
+      box-shadow: 0 10px 26px rgba(15,23,42,.08);
+    }
+
+    /* Footer (unchanged per request) */
     .footer{
       margin-top: 40px;
       padding-top: 18px;
@@ -236,6 +247,7 @@
       }
       .wrap{ padding: 18px 16px 86px; }
       h1{ font-size: 32px; letter-spacing: -0.7px; }
+      .hero-blocks{ max-width: 74ch; }
       .btn{ width: 100%; }
     }
   </style>
@@ -294,7 +306,7 @@
 
       <div class="grid">
 
-        <div class="panel">
+        <div class="panel primary">
           <h2>Contact</h2>
           <div class="row">
             <div>
@@ -306,7 +318,7 @@
           </div>
         </div>
 
-        <div class="panel">
+        <div class="panel secondary">
           <h2>Policies</h2>
           <p class="meta policy-links">
             <a href="/privacy.html">Privacy</a>
