@@ -13,19 +13,22 @@
 
   <style>
     :root{
-      /* Match Real Estate (visual system) */
-      --bg: #d0d4da;
-      --frame: #edf0f4;
+      /* Shared system (matches Real Estate), with subtle OS differentiation */
+      --bg: #c9d0d8;                 /* slightly cooler than RE */
+      --frame: #edf0f4;              /* same frame */
       --frameBorder: rgba(15, 23, 42, 0.35);
       --frameShadow: 0 32px 90px rgba(15, 23, 42, 0.22);
+
+      --panelBg: #f5f7fa;            /* off-white panels (less bright than pure white) */
 
       --text: #0f172a;
       --muted: #475569;
       --muted2:#64748b;
       --line: rgba(148,163,184,.45);
 
-      --accent: #0f766e;
-      --accentHover: #115e59;
+      /* Slightly muted accent (same green family) */
+      --accent: #0f6b64;
+      --accentHover: #0d5c56;
       --accentText: #ffffff;
 
       --max: 980px;
@@ -42,7 +45,7 @@
       -moz-osx-font-smoothing: grayscale;
     }
 
-    /* Content frame (same as Real Estate) */
+    /* Content frame (same structure as Real Estate) */
     .page-frame{
       max-width: var(--max);
       margin: 16px auto 28px;
@@ -54,7 +57,7 @@
     }
 
     .wrap{
-      padding: 22px 24px 90px;
+      padding: 22px 24px 70px; /* tightened bottom padding */
     }
 
     header{
@@ -63,7 +66,7 @@
     }
 
     h1{
-      margin: 0 0 10px 0;
+      margin: 0 0 22px 0; /* increased spacing under heading */
       font-size: 46px;
       line-height: 1.06;
       letter-spacing: -1px;
@@ -71,16 +74,16 @@
       color: #0b1220;
     }
 
-    /* Keep your 3-paragraph lead, but match Real Estate sizing */
+    /* Hero copy: match RE rhythm, centered */
     .hero-blocks{
       max-width: 78ch;
-      margin: 0 auto 14px auto;
-      text-align: left; /* Operational reads better left-aligned */
+      margin: 0 auto 18px auto;
+      text-align: center;
     }
     .lead{
-      margin: 0 0 14px 0;
-      font-size: 16px;
-      line-height: 1.75;
+      margin: 0 0 12px 0;
+      font-size: 18px;    /* bumped to match RE hero feel */
+      line-height: 1.55;  /* tighter */
       color: var(--muted);
       font-weight: 500;
       text-wrap: pretty;
@@ -89,16 +92,16 @@
     hr{
       margin: 28px 0;
       border: none;
-      border-top: 1px solid var(--line);
+      border-top: 1px solid rgba(148,163,184,.35); /* lighter divider */
     }
 
-    /* Panel/card styling tuned to match Real Estate */
+    /* Panels: same component language, less heavy */
     .panel{
-      border: 1px solid rgba(148,163,184,.55);
+      border: 1px solid rgba(148,163,184,.45);
       border-radius: 12px;
       padding: 16px;
-      background: #ffffff;
-      box-shadow: 0 12px 26px rgba(15,23,42,.10);
+      background: var(--panelBg); /* less-white boxes */
+      box-shadow: 0 10px 22px rgba(15,23,42,.08); /* reduced shadow */
     }
 
     .panel h2{
@@ -113,12 +116,12 @@
     .kv{
       display: grid;
       grid-template-columns: 170px 1fr;
-      gap: 8px 14px;
+      gap: 10px 16px; /* slightly more breathing room */
       margin-top: 6px;
     }
     .k{
       color: rgba(100,116,139,.92);
-      font-size: 12.5px;
+      font-size: 13px;
       font-weight: 650;
     }
     .v{
@@ -135,7 +138,7 @@
 
     .row{
       display: flex;
-      align-items: flex-start;
+      align-items: center; /* better button alignment */
       justify-content: space-between;
       gap: 12px;
       flex-wrap: wrap;
@@ -155,7 +158,7 @@
     }
     a:hover{ text-decoration: underline; }
 
-    /* Button: match Real Estate button */
+    /* Button: same shape/behavior, slightly muted accent */
     .btn{
       display: inline-flex;
       align-items: center;
@@ -169,24 +172,24 @@
       background: var(--accent);
       color: var(--accentText);
       border: 1px solid rgba(0,0,0,.08);
-      box-shadow: 0 14px 30px rgba(15,118,110,.22);
+      box-shadow: 0 14px 30px rgba(15,107,100,.20);
       transition: transform .06s ease, box-shadow .12s ease, background .12s ease;
       white-space: nowrap;
     }
     .btn:hover{
       background: var(--accentHover);
-      box-shadow: 0 16px 34px rgba(15,118,110,.26);
+      box-shadow: 0 16px 34px rgba(15,107,100,.24);
     }
     .btn:active{ transform: translateY(1px); }
 
     .policy-links a{
       display: inline-block;
-      margin-right: 14px;
+      margin-right: 12px; /* slightly tighter */
       margin-bottom: 8px;
       font-weight: 800;
     }
 
-    /* Footer: match Real Estate footer styling + labels */
+    /* Footer: match RE structure, with tighter link spacing */
     .footer{
       margin-top: 56px;
       padding-top: 18px;
@@ -203,7 +206,7 @@
       color: rgba(15,23,42,.72);
       text-decoration: none;
       font-weight: 800;
-      margin-right: 14px;
+      margin-right: 12px; /* tightened */
     }
     .footer a:hover{ text-decoration: underline; }
 
@@ -217,8 +220,8 @@
         margin: 12px 12px 22px;
         border-radius: 16px;
       }
-      .wrap{ padding: 18px 16px 110px; }
-      h1{ font-size: 32px; letter-spacing: -0.7px; }
+      .wrap{ padding: 18px 16px 90px; }
+      h1{ font-size: 32px; letter-spacing: -0.7px; margin-bottom: 18px; }
       .btn{ width: 100%; }
     }
   </style>
@@ -253,8 +256,8 @@
         <div class="kv">
           <div class="k">Entity</div><div class="v">Operational Systems, LLC</div>
           <div class="k">Entity Type</div><div class="v">Limited Liability Company (LLC)</div>
-          <div class="k">Business Type</div><div class="v">Digital systems, templates & operational assets</div>
-          <div class="k">Purpose</div><div class="v">Administrative reference & verification</div>
+          <div class="k">Business Type</div><div class="v">Digital systems, templates &amp; operational assets</div>
+          <div class="k">Purpose</div><div class="v">Administrative reference &amp; verification</div>
           <div class="k">Distribution</div><div class="v">Independently branded websites</div>
           <div class="k">Public sales</div><div class="v">Not offered on this site</div>
         </div>
@@ -279,7 +282,6 @@
         <div class="panel">
           <h2>Policies</h2>
           <p class="meta policy-links">
-            <!-- ✅ label changes: Privacy / Terms -->
             <a href="/privacy.html">Privacy</a>
             <a href="/terms.html">Terms</a>
           </p>
@@ -293,7 +295,6 @@
       <div class="footer">
         <div>© <a href="https://operational-systems.com">Operational Systems, LLC</a></div>
         <div>
-          <!-- ✅ label changes: Privacy / Terms -->
           <a href="/privacy.html">Privacy</a>
           <a href="/terms.html">Terms</a>
         </div>
