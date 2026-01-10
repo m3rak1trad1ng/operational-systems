@@ -1,198 +1,252 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   <title>Operational Systems, LLC</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Operational Systems, LLC — administrative reference information.">
+
+  <!-- Font: Inter (match Real Estate) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg:#0f172a;
-      --surface:#111827;
-      --card:#1f2937;
-      --panel:#273449;
-      --text:#e5e7eb;
-      --muted:#9ca3af;
-      --line:#374151;
-      --accent:#60a5fa;
-      --accent2:#93c5fd;
-      --shadow: 0 18px 44px rgba(0,0,0,.42);
-      --radius:16px;
+      /* Match Real Estate (visual system) */
+      --bg: #d0d4da;
+      --frame: #edf0f4;
+      --frameBorder: rgba(15, 23, 42, 0.35);
+      --frameShadow: 0 32px 90px rgba(15, 23, 42, 0.22);
+
+      --text: #0f172a;
+      --muted: #475569;
+      --muted2:#64748b;
+      --line: rgba(148,163,184,.45);
+
+      --accent: #0f766e;
+      --accentHover: #115e59;
+      --accentText: #ffffff;
+
+      --max: 980px;
     }
 
-    *{box-sizing:border-box}
+    *{ box-sizing: border-box; }
 
     body{
-      margin:0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(180deg, #0b1220, var(--bg));
+      margin: 0;
+      background: var(--bg);
       color: var(--text);
+      font-family: "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Content frame (same as Real Estate) */
+    .page-frame{
+      max-width: var(--max);
+      margin: 16px auto 28px;
+      background: var(--frame);
+      border: 1px solid var(--frameBorder);
+      border-radius: 20px;
+      box-shadow: var(--frameShadow);
+      overflow: clip;
     }
 
     .wrap{
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 54px 24px 60px;
+      padding: 22px 24px 90px;
     }
 
-    .card{
-      background: linear-gradient(180deg, var(--card), var(--surface));
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 46px;
+    header{
+      text-align: center;
+      margin-top: 8px;
     }
 
     h1{
-      margin: 0 0 18px 0;
-      font-size: 38px;
-      letter-spacing: -0.6px;
+      margin: 0 0 10px 0;
+      font-size: 46px;
+      line-height: 1.06;
+      letter-spacing: -1px;
+      font-weight: 800;
+      color: #0b1220;
     }
 
+    /* Keep your 3-paragraph lead, but match Real Estate sizing */
+    .hero-blocks{
+      max-width: 78ch;
+      margin: 0 auto 14px auto;
+      text-align: left; /* Operational reads better left-aligned */
+    }
     .lead{
-      margin:0 0 14px 0;
-      font-size:16px;
-      line-height:1.75;
+      margin: 0 0 14px 0;
+      font-size: 16px;
+      line-height: 1.75;
       color: var(--muted);
-      max-width: 75ch;
+      font-weight: 500;
+      text-wrap: pretty;
     }
 
     hr{
       margin: 28px 0;
-      border:none;
+      border: none;
       border-top: 1px solid var(--line);
     }
 
+    /* Panel/card styling tuned to match Real Estate */
     .panel{
-      border:1px solid var(--line);
-      border-radius: 14px;
-      padding: 18px;
-      background: var(--panel);
+      border: 1px solid rgba(148,163,184,.55);
+      border-radius: 12px;
+      padding: 16px;
+      background: #ffffff;
+      box-shadow: 0 12px 26px rgba(15,23,42,.10);
     }
 
     .panel h2{
-      margin:0 0 12px 0;
+      margin: 0 0 12px 0;
       font-size: 14px;
-      letter-spacing:.45px;
+      letter-spacing: .45px;
       text-transform: uppercase;
-      color:#f3f4f6;
+      font-weight: 800;
+      color: #0b1220;
     }
 
     .kv{
-      display:grid;
+      display: grid;
       grid-template-columns: 170px 1fr;
       gap: 8px 14px;
       margin-top: 6px;
     }
     .k{
-      color:#8b95a7;
-      font-size:12.5px;
+      color: rgba(100,116,139,.92);
+      font-size: 12.5px;
+      font-weight: 650;
     }
     .v{
-      color:#e5e7eb;
-      font-size:13px;
+      color: #0f172a;
+      font-size: 13px;
+      font-weight: 600;
     }
 
     .grid{
-      display:grid;
+      display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 16px;
     }
 
     .row{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
       gap: 12px;
-      flex-wrap:wrap;
+      flex-wrap: wrap;
     }
 
     .meta{
-      margin:0;
+      margin: 0;
       color: var(--muted);
       font-size: 15px;
       line-height: 1.65;
     }
 
     a{
-      color: var(--accent2);
+      color: rgba(15,23,42,.72);
       text-decoration: none;
       font-weight: 800;
     }
+    a:hover{ text-decoration: underline; }
 
+    /* Button: match Real Estate button */
     .btn{
-      display:inline-block;
-      padding:10px 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
       border-radius: 12px;
-      color: var(--accent2);
-      text-decoration:none;
-      font-weight:800;
-      font-size:14px;
-      background: rgba(96,165,250,.12);
-      border: 1px solid rgba(96,165,250,.28);
-      white-space:nowrap;
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: .2px;
+      text-decoration: none;
+      background: var(--accent);
+      color: var(--accentText);
+      border: 1px solid rgba(0,0,0,.08);
+      box-shadow: 0 14px 30px rgba(15,118,110,.22);
+      transition: transform .06s ease, box-shadow .12s ease, background .12s ease;
+      white-space: nowrap;
     }
-
     .btn:hover{
-      background: rgba(96,165,250,.18);
-      border-color: rgba(96,165,250,.40);
+      background: var(--accentHover);
+      box-shadow: 0 16px 34px rgba(15,118,110,.26);
     }
+    .btn:active{ transform: translateY(1px); }
 
     .policy-links a{
-      display:inline-block;
-      margin-right: 20px;
+      display: inline-block;
+      margin-right: 14px;
       margin-bottom: 8px;
-    }
-
-    .footer{
-      margin-top: 24px;
-      border-top: 1px solid var(--line);
-      padding-top: 18px;
-      display:flex;
-      flex-wrap:wrap;
-      align-items:center;
-      justify-content:space-between;
-      gap: 14px;
-      font-size: 13px;
-      color: #9ca3af;
-    }
-
-    .footer-links a{
       font-weight: 800;
-      margin-left: 18px;
     }
+
+    /* Footer: match Real Estate footer styling + labels */
+    .footer{
+      margin-top: 56px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(148,163,184,.45);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--muted2);
+      font-size: 13px;
+    }
+    .footer a{
+      color: rgba(15,23,42,.72);
+      text-decoration: none;
+      font-weight: 800;
+      margin-right: 14px;
+    }
+    .footer a:hover{ text-decoration: underline; }
 
     @media (max-width: 900px){
-      .grid{grid-template-columns:1fr;}
-      .card{padding:26px;}
-      h1{font-size:30px;}
-      .kv{grid-template-columns:1fr;}
-      .wrap{padding-top:34px;}
-      .footer{justify-content:flex-start;}
-      .footer-links a{margin-left:0;margin-right:16px;}
+      .grid{ grid-template-columns: 1fr; }
+      .kv{ grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 820px){
+      .page-frame{
+        margin: 12px 12px 22px;
+        border-radius: 16px;
+      }
+      .wrap{ padding: 18px 16px 110px; }
+      h1{ font-size: 32px; letter-spacing: -0.7px; }
+      .btn{ width: 100%; }
     }
   </style>
 </head>
 
 <body>
+  <div class="page-frame">
+    <div class="wrap">
 
-  <div class="wrap">
-    <div class="card">
+      <header>
+        <h1>Operational Systems, LLC</h1>
+      </header>
 
-      <h1>Operational Systems, LLC</h1>
+      <div class="hero-blocks">
+        <p class="lead">
+          Operational Systems, LLC develops and maintains structured digital systems designed to support consistent execution across marketing, communications, and related operational contexts.
+        </p>
 
-      <p class="lead">
-        Operational Systems, LLC develops and maintains structured digital systems designed to support consistent execution across marketing, communications, and related operational contexts.
-      </p>
+        <p class="lead">
+          These systems are designed for long-term organizational use, supporting continuity and consistency across teams and initiatives.
+        </p>
 
-      <p class="lead">
-        These systems are designed for long-term organizational use, supporting continuity and consistency across teams and initiatives.
-      </p>
+        <p class="lead" style="margin-bottom:0;">
+          The company focuses on system design and governance rather than creative services or custom implementation. Solutions are delivered through independently branded platforms aligned to specific industries, and this website is maintained for general informational and administrative purposes.
+        </p>
+      </div>
 
-      <p class="lead">
-        The company focuses on system design and governance rather than creative services or custom implementation. Solutions are delivered through independently branded platforms aligned to specific industries, and this website is maintained for general informational and administrative purposes.
-      </p>
+      <hr>
 
       <div class="panel">
         <h2>Company Summary</h2>
@@ -225,8 +279,9 @@
         <div class="panel">
           <h2>Policies</h2>
           <p class="meta policy-links">
-            <a href="/privacy.html">Privacy Policy</a>
-            <a href="/terms.html">Terms of Use</a>
+            <!-- ✅ label changes: Privacy / Terms -->
+            <a href="/privacy.html">Privacy</a>
+            <a href="/terms.html">Terms</a>
           </p>
           <p class="meta" style="margin-top:10px;">
             This site does not collect personal data, use analytics, or process transactions.
@@ -236,15 +291,15 @@
       </div>
 
       <div class="footer">
-        <div>© Operational Systems, LLC. All rights reserved.</div>
-        <div class="footer-links">
-          <a href="/privacy.html">Privacy Policy</a>
-          <a href="/terms.html">Terms of Use</a>
+        <div>© <a href="https://operational-systems.com">Operational Systems, LLC</a></div>
+        <div>
+          <!-- ✅ label changes: Privacy / Terms -->
+          <a href="/privacy.html">Privacy</a>
+          <a href="/terms.html">Terms</a>
         </div>
       </div>
 
     </div>
   </div>
-
 </body>
 </html>
