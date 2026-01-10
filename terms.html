@@ -13,23 +13,26 @@
 
   <style>
     :root{
-      --bg:#cfd7e2;
-      --frame:#eef2f7;
-      --frameBorder:rgba(15,23,42,.28);
-      --frameShadow:0 28px 80px rgba(15,23,42,.18);
+      /* DARKER THEME (still in your blue/graphite family) */
+      --bg:#0e1624;                 /* page background */
+      --topbarBg: rgba(14,22,36,.86);
+      --frame:#121c2c;              /* main frame */
+      --frameBorder: rgba(148,163,184,.22);
+      --frameShadow: 0 30px 90px rgba(0,0,0,.42);
 
-      --panelBg:#e8eef7;
-      --panelBorder:rgba(100,116,139,.32);
-      --panelShadow:0 14px 34px rgba(15,23,42,.10);
+      --panelBg:#0f1a2b;            /* inner panel */
+      --panelBorder: rgba(148,163,184,.22);
+      --panelShadow: 0 18px 48px rgba(0,0,0,.28);
 
-      --text:#0b1220;
-      --muted:#42566d;
-      --muted2:#5b6f87;
-      --line:rgba(100,116,139,.18);
+      --text:#e7eefb;
+      --muted:#b6c2d6;
+      --muted2:#94a3b8;
+      --line: rgba(148,163,184,.20);
+
+      --link: #9cc6ff;
 
       --max:980px;
       --topbarH:52px;
-      --anchorGap:14px;
     }
 
     *{ box-sizing:border-box; }
@@ -42,19 +45,19 @@
 
     body{
       margin:0;
-      background:var(--bg);
-      color:var(--text);
+      background: var(--bg);
+      color: var(--text);
       font-family:"Inter",ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
     }
 
-    /* Sticky nav (match Privacy) */
+    /* Sticky nav OUTSIDE frame */
     .topbar{
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(207,215,226,.92);
+      background: var(--topbarBg);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--line);
     }
@@ -76,7 +79,7 @@
     }
     .nav a{
       font-size: 13px;
-      color: rgba(15,23,42,.72);
+      color: rgba(231,238,251,.78);
       text-decoration: none;
       font-weight: 650;
       padding: 7px 10px;
@@ -84,12 +87,12 @@
       transition: background .12s ease, color .12s ease;
     }
     .nav a:hover{
-      background: rgba(15,23,42,.08);
-      color: rgba(15,23,42,.92);
+      background: rgba(231,238,251,.08);
+      color: rgba(231,238,251,.92);
     }
     .nav a.active{
-      background: rgba(36,79,114,.14);
-      color: rgba(36,79,114,.95);
+      background: rgba(156,198,255,.16);
+      color: rgba(156,198,255,.98);
     }
 
     /* Frame */
@@ -102,7 +105,7 @@
       box-shadow:var(--frameShadow);
       overflow: clip;
     }
-    .wrap{ padding: 22px 24px 34px; }
+    .wrap{ padding: 22px 24px 30px; }
 
     header{
       text-align:center;
@@ -115,10 +118,8 @@
       line-height: 1.06;
       letter-spacing: -1px;
       font-weight: 800;
-      color: #0b1220;
+      color: var(--text);
     }
-
-    /* Intro (match your main/privacy vibe) */
     .intro{
       margin: 0 auto;
       max-width: 78ch;
@@ -128,7 +129,7 @@
       font-weight: 500;
     }
 
-    /* Panel (match Privacy style) */
+    /* Big panel */
     .panel{
       margin-top: 18px;
       background: var(--panelBg);
@@ -138,15 +139,11 @@
       box-shadow: var(--panelShadow);
     }
 
-    .section{
-      padding: 14px 0;
-    }
+    /* Sections: NO divider lines between them */
+    .section{ padding: 14px 0; }
     .section:first-child{ padding-top: 0; }
     .section:last-child{ padding-bottom: 0; }
-
-    .section + .section{
-      border-top: 1px solid rgba(100,116,139,.18);
-    }
+    .section + .section{ border-top: none; } /* <- removed bullet dividers */
 
     h2{
       margin: 0 0 8px 0;
@@ -154,7 +151,7 @@
       letter-spacing: .45px;
       text-transform: uppercase;
       font-weight: 800;
-      color: #0b1220;
+      color: var(--text);
     }
 
     p, li{
@@ -164,7 +161,6 @@
       color: var(--muted);
       font-weight: 500;
     }
-
     .stack p + p{ margin-top: 10px; }
 
     ul{
@@ -174,34 +170,27 @@
     ul li{ margin: 6px 0; }
 
     a{
-      color: rgba(36,79,114,.95);
+      color: var(--link);
       font-weight: 800;
       text-decoration: none;
     }
     a:hover{ text-decoration: underline; }
 
+    /* Footer: NO bottom-right links */
     .footer{
-      margin-top: 22px;
-      padding-top: 16px;
+      margin-top: 18px;
+      padding-top: 14px;
       border-top: 1px solid var(--line);
       font-size: 13px;
-      color: var(--muted2);
+      color: rgba(148,163,184,.92);
       display:flex;
-      flex-wrap:wrap;
-      gap: 10px 18px;
       align-items:center;
-      justify-content: space-between;
+      justify-content:flex-start;
     }
-    .footer-links a{
-      color: rgba(15,23,42,.72);
-      font-weight: 800;
-      margin-right: 14px;
-    }
-    .footer-links a:last-child{ margin-right: 0; }
 
     @media (max-width: 820px){
       .page-frame{ margin: 12px 12px 18px; border-radius: 16px; }
-      .wrap{ padding: 18px 16px 28px; }
+      .wrap{ padding: 18px 16px 24px; }
       h1{ font-size: 32px; letter-spacing: -0.7px; }
     }
   </style>
@@ -311,12 +300,7 @@
       </div>
 
       <div class="footer">
-        <div>© Operational Systems, LLC. All rights reserved.</div>
-        <div class="footer-links">
-          <a href="index.html">Home</a>
-          <a href="privacy.html">Privacy</a>
-          <a href="terms.html">Terms</a>
-        </div>
+        © Operational Systems, LLC. All rights reserved.
       </div>
     </div>
   </div>
