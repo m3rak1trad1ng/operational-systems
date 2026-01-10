@@ -32,7 +32,7 @@
       --linkActive:#0b1220;
 
       --max:980px;
-      --contentMax:900px; /* panel width */
+      --contentMax:900px;
     }
 
     *{ box-sizing:border-box; }
@@ -58,7 +58,6 @@
 
     .wrap{ padding:26px 26px 72px; }
 
-    /* Top policy nav */
     .policy-nav{
       display:flex;
       justify-content:center;
@@ -79,8 +78,8 @@
     }
 
     header{
-      text-align:center; /* keep H1 centered */
-      margin-top:2px;
+      text-align:center;
+      margin-top: 2px;
     }
 
     h1{
@@ -102,13 +101,6 @@
     }
     .lead + .lead{ margin-top:12px; }
 
-    /* ✅ ONLY CHANGE: System Index style column for the two lead paragraphs */
-    .hero-index{
-      max-width:86ch;     /* matches your System Index block behavior */
-      margin:0 auto;      /* centered column */
-      text-align:left;    /* left-aligned text inside */
-    }
-
     .panel{
       margin:18px auto 0;
       max-width: var(--contentMax);
@@ -119,9 +111,9 @@
       box-shadow:var(--panelShadow);
     }
 
-    .section{ padding:14px 0; }
-    .section:first-child{ padding-top:0; }
-    .section:last-child{ padding-bottom:0; }
+    .section{ padding: 14px 0; }
+    .section:first-child{ padding-top: 0; }
+    .section:last-child{ padding-bottom: 0; }
 
     .section h2{
       margin:0 0 9px 0;
@@ -150,8 +142,7 @@
     @media (max-width:900px){
       .wrap{ padding:18px 16px 86px; }
       h1{ font-size:32px; letter-spacing:-0.7px; }
-      .panel{ max-width:100%; }
-      .hero-index{ max-width:100%; } /* responsive only */
+      .panel{ max-width: 100%; }
     }
   </style>
 </head>
@@ -169,14 +160,15 @@
       <header>
         <h1>Privacy</h1>
 
-        <!-- ONLY CHANGE AREA: lead text now sits like System Index (narrow centered column, left-aligned) -->
-        <div class="hero-index">
-          <p class="lead">
+        <!-- ONLY CHANGE: use the System Index layout container + left-aligned paragraphs -->
+        <div style="max-width:86ch; margin:0 auto;">
+          <p class="lead" style="text-align:left; line-height:1.65;">
             This website is maintained for general informational and administrative reference purposes only.
             It is not operated as a consumer-facing platform and does not provide user accounts, transactions,
             or interactive services.
           </p>
-          <p class="lead">
+
+          <p class="lead" style="margin-top:12px; text-align:left; line-height:1.65;">
             Operational Systems, LLC does not collect, store, process, or analyze personal data through this website.
           </p>
         </div>
