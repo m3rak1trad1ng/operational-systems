@@ -13,184 +13,213 @@
 
   <style>
     :root{
-      --bg:#cfd7e2;
-      --frame:#eef2f7;
-      --frameBorder:rgba(15,23,42,.28);
-      --frameShadow:0 28px 80px rgba(15,23,42,.18);
+      /* Match your TOC / light graphite look */
+      --bg: #c9cdd3;
+      --frame: #e9edf2;
+      --frameBorder: rgba(15, 23, 42, 0.32);
+      --frameShadow: 0 28px 80px rgba(15, 23, 42, 0.20);
 
-      --panelBg:#e8eef7;
-      --panelBorder:rgba(100,116,139,.32);
-      --panelShadow:0 14px 34px rgba(15,23,42,.10);
+      --text: #0f172a;
+      --muted: #475569;
+      --muted2:#64748b;
+      --line: rgba(148,163,184,.45);
 
-      --text:#0b1220;
-      --muted:#42566d;
-      --muted2:#5b6f87;
+      --max: 980px;
+      --topbarH: 52px;
+      --anchorGap: 14px;
 
-      --divider:rgba(100,116,139,.18);
+      /* System Index width behavior */
+      --contentCh: 86ch;
+      --heroCh: 78ch;
 
-      --link:#244f72;
-      --linkActive:#0b1220;
-
-      --max:980px;
-      --contentMax:900px; /* shared column width for hero + panel */
-      --heroCopyMax:78ch; /* main-page style readable width */
+      --panelBg: #eef2f7;                /* subtle – not blue */
+      --panelBorder: rgba(15,23,42,.18); /* softer */
     }
 
-    *{ box-sizing:border-box; }
+    *{ box-sizing: border-box; }
+
+    html{ scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior: auto; }
+      *{ transition: none !important; }
+    }
 
     body{
-      margin:0;
-      background:var(--bg);
-      color:var(--text);
-      font-family:"Inter",ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    .page-frame{
-      max-width:var(--max);
-      margin:16px auto 28px;
-      background:var(--frame);
-      border:1px solid var(--frameBorder);
-      border-radius:20px;
-      box-shadow:var(--frameShadow);
-      overflow:clip;
+    /* Sticky topbar (same structure as TOC) */
+    .topbar{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(201,205,211,.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
     }
-
-    .wrap{ padding:26px 26px 72px; }
-
-    /* Top policy nav */
-    .policy-nav{
-      display:flex;
-      justify-content:center;
-      gap:18px;
-      font-size:13px;
-      font-weight:800;
-      margin:0 0 26px 0;
-    }
-    .policy-nav a{
-      color:var(--link);
-      text-decoration:none;
-    }
-    .policy-nav a:hover{ text-decoration:underline; }
-    .policy-nav a.active{
-      color:var(--linkActive);
-      cursor:default;
-      text-decoration:none;
-    }
-
-    header{
-      text-align:center;
-      margin-top:2px;
-    }
-
-    h1{
-      margin:0 0 16px 0;
-      font-size:46px;
-      line-height:1.06;
-      letter-spacing:-1px;
-      font-weight:800;
-      color:#0b1220;
-    }
-
-    /* Hero block aligns to the same “column” as panel, like main page */
-    .hero-block{
-      max-width: var(--contentMax);
+    .topbar-inner{
+      max-width: var(--max);
       margin: 0 auto;
-      text-align:left;
+      padding: 8px 18px;
+      min-height: var(--topbarH);
+      display:flex;
+      align-items:center;
+      justify-content: center;
+    }
+    .nav{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+      align-items:center;
+      justify-content:center;
+    }
+    .nav a{
+      font-size: 13px;
+      color: rgba(15,23,42,.72);
+      text-decoration: none;
+      font-weight: 650;
+      padding: 7px 10px;
+      border-radius: 999px;
+      transition: background .12s ease, color .12s ease;
+    }
+    .nav a:hover{
+      background: rgba(15,23,42,.08);
+      color: rgba(15,23,42,.92);
+    }
+    .nav a.active{
+      background: rgba(15,23,42,.10);
+      color: rgba(15,23,42,.98);
+      cursor: default;
     }
 
-    .lead{
-      margin:0;
-      max-width: var(--heroCopyMax); /* prevent ugly long lines + weird wraps */
-      font-size:16px;
-      line-height:1.75;
-      color:var(--muted);
-      font-weight:500;
-
-      /* IMPORTANT: remove “pretty” wrapping (causes the weird orphan lines) */
-      text-wrap: normal;
-      overflow-wrap: normal;
-      word-break: normal;
+    /* Frame */
+    .page-frame{
+      max-width: var(--max);
+      margin: 16px auto 24px;
+      background: var(--frame);
+      border: 1px solid var(--frameBorder);
+      border-radius: 20px;
+      box-shadow: var(--frameShadow);
+      overflow: clip;
     }
-    .lead + .lead{ margin-top:12px; }
+    .wrap{ padding: 18px 24px 28px; }
 
+    /* Hero */
+    header{
+      text-align: center;
+      margin-top: 6px;
+      padding-bottom: 6px;
+    }
+    h1{
+      margin: 0 0 14px 0;
+      font-size: 46px;
+      line-height: 1.06;
+      letter-spacing: -1px;
+      font-weight: 800;
+      color: #0b1220;
+    }
+
+    /* This is the TOC “System Index” pattern:
+       centered block, left-aligned text inside */
+    .hero-inner{
+      max-width: var(--contentCh);
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    /* Use the TOC prose feel */
+    .prose{
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--muted);
+      text-align: left;
+    }
+    .prose + .prose{ margin-top: 12px; }
+
+    /* Panel: single box, no internal divider rules */
     .panel{
-      margin:18px auto 0;
-      max-width: var(--contentMax);
-      background:var(--panelBg);
-      border:1px solid var(--panelBorder);
-      border-radius:14px;
-      padding:18px;
-      box-shadow:var(--panelShadow);
+      margin: 22px auto 0;
+      max-width: var(--contentCh);
+      background: var(--panelBg);
+      border: 1px solid var(--panelBorder);
+      border-radius: 14px;
+      padding: 18px 18px;
     }
 
-    /* no dividers — just spacing rhythm */
-    .section{ padding: 14px 0; }
-    .section:first-child{ padding-top: 0; }
-    .section:last-child{ padding-bottom: 0; }
+    .block + .block{ margin-top: 18px; }
 
-    .section h2{
-      margin:0 0 9px 0;
-      font-size:12.5px;
-      letter-spacing:.45px;
-      text-transform:uppercase;
-      font-weight:800;
-      color:#0b1220;
+    .block h2{
+      margin: 0 0 8px 0;
+      font-size: 12.5px;
+      letter-spacing: .45px;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: #0b1220;
+      text-align: left;
     }
 
     .meta{
-      margin:0;
-      font-size:15px;
-      line-height:1.75;
-      color:var(--muted);
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--muted);
+      text-align: left;
     }
 
+    /* Footer (match your home style: no links) */
     .footer{
-      margin-top:40px;
-      padding-top:18px;
-      border-top:1px solid var(--divider);
-      font-size:13px;
-      color:var(--muted2);
+      margin-top: 34px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(148,163,184,.45);
+      color: var(--muted2);
+      font-size: 13px;
     }
 
-    @media (max-width:900px){
-      .wrap{ padding:18px 16px 86px; }
-      h1{ font-size:32px; letter-spacing:-0.7px; }
-      .hero-block{ max-width:100%; }
-      .panel{ max-width: 100%; }
-      .lead{ max-width: 100%; }
+    @media (max-width: 820px){
+      .page-frame{ margin: 12px 12px 18px; border-radius: 16px; }
+      .wrap{ padding: 16px 16px 22px; }
+      h1{ font-size: 32px; letter-spacing: -0.7px; }
+      .hero-inner, .panel{ max-width: 100%; }
     }
   </style>
 </head>
 
 <body>
-  <div class="page-frame">
-    <div class="wrap">
-
-      <nav class="policy-nav" aria-label="Policy navigation">
+  <div class="topbar" id="topbar">
+    <div class="topbar-inner" id="topbar-inner">
+      <nav class="nav" aria-label="Primary navigation" id="nav">
         <a href="/">Home</a>
         <a class="active" aria-current="page">Privacy</a>
         <a href="/terms.html">Terms</a>
       </nav>
+    </div>
+  </div>
 
+  <div class="page-frame">
+    <div class="wrap">
       <header>
         <h1>Privacy</h1>
 
-        <div class="hero-block">
-          <p class="lead">
+        <div class="hero-inner">
+          <p class="prose">
             This website is maintained for general informational and administrative reference purposes only.
             It is not operated as a consumer-facing platform and does not provide user accounts, transactions,
             or interactive services.
           </p>
-          <p class="lead">
+          <p class="prose">
             Operational Systems, LLC does not collect, store, process, or analyze personal data through this website.
           </p>
         </div>
       </header>
 
       <div class="panel" role="region" aria-label="Privacy sections">
-        <div class="section">
+        <div class="block">
           <h2>Information Collection Practices</h2>
           <p class="meta">
             No personal information is collected automatically or voluntarily through this site.
@@ -198,7 +227,7 @@
           </p>
         </div>
 
-        <div class="section">
+        <div class="block">
           <h2>Tracking Technologies</h2>
           <p class="meta">
             This site does not use cookies, analytics, advertising pixels, session replay tools,
@@ -206,7 +235,7 @@
           </p>
         </div>
 
-        <div class="section">
+        <div class="block">
           <h2>Hosting &amp; Server Logs</h2>
           <p class="meta">
             This website is hosted by a third-party hosting provider. Like most hosting services,
@@ -216,7 +245,7 @@
           </p>
         </div>
 
-        <div class="section">
+        <div class="block">
           <h2>Business Practices</h2>
           <p class="meta">
             Operational Systems, LLC operates under a data-minimization philosophy.
@@ -226,7 +255,7 @@
           </p>
         </div>
 
-        <div class="section">
+        <div class="block">
           <h2>Communications</h2>
           <p class="meta">
             If you choose to contact the company via email, any information provided is used solely
@@ -235,7 +264,7 @@
           </p>
         </div>
 
-        <div class="section">
+        <div class="block">
           <h2>Security</h2>
           <p class="meta">
             Reasonable administrative and technical measures are used to help protect communications and website operations.
@@ -243,7 +272,7 @@
           </p>
         </div>
 
-        <div class="section">
+        <div class="block">
           <h2>Disclosure &amp; Third-Party Access</h2>
           <p class="meta">
             No personal data is sold, shared, or disclosed through this website except as required by applicable law
@@ -251,7 +280,7 @@
           </p>
         </div>
 
-        <div class="section">
+        <div class="block">
           <h2>Applicability &amp; Scope</h2>
           <p class="meta">
             This document governs this website and describes the baseline privacy principles maintained by Operational Systems, LLC.
@@ -263,8 +292,26 @@
       <div class="footer">
         © Operational Systems, LLC. All rights reserved.
       </div>
-
     </div>
   </div>
+
+  <script>
+    (function(){
+      const topbar = document.getElementById('topbar');
+      function getTopbarH(){
+        if (!topbar) return 52;
+        return Math.ceil(topbar.getBoundingClientRect().height);
+      }
+      function setTopbarH(){
+        const h = getTopbarH();
+        document.documentElement.style.setProperty('--topbarH', h + 'px');
+        return h;
+      }
+      setTopbarH();
+      requestAnimationFrame(setTopbarH);
+      window.addEventListener('load', setTopbarH);
+      window.addEventListener('resize', setTopbarH);
+    })();
+  </script>
 </body>
 </html>
