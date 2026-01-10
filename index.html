@@ -19,13 +19,10 @@
       --frameBorder: rgba(15, 23, 42, 0.28);
       --frameShadow: 0 28px 80px rgba(15, 23, 42, 0.18);
 
-      /* ✅ Tinted panels (NOT white) */
+      /* ✅ Uniform tinted panels (NOT white) */
       --panelBg: #e8eef7;
       --panelBorder: rgba(100,116,139,.32);
       --panelShadow: 0 14px 34px rgba(15,23,42,.10);
-
-      /* ✅ Slight emphasis variant for primary panel (Contact) */
-      --panelBgStrong: #e2ebf7;
 
       --text: #0b1220;
       --muted: #42566d;
@@ -36,7 +33,6 @@
       --accent: #2b5f8a;
       --accentHover: #244f72;
       --accentText: #ffffff;
-
       --link: #244f72;
 
       --max: 980px;
@@ -87,13 +83,14 @@
       color: #0b1220;
     }
 
-    /* ✅ Hero copy: slightly narrower (more admin/doc tone) */
+    /* ✅ HERO WIDTH FIX:
+       Make hero container as wide as the page content (like panels),
+       but constrain each paragraph for readability. */
     .hero-blocks{
-      max-width: 70ch;          /* was 78ch */
-      margin: 0 auto 18px auto;
+      max-width: none;       /* was constrained; caused side "wings" */
+      margin: 0 0 18px 0;    /* aligns with panels */
       text-align: left;
     }
-
     .lead{
       margin: 0 0 14px 0;
       font-size: 17px;
@@ -101,6 +98,7 @@
       color: var(--muted);
       font-weight: 500;
       text-wrap: pretty;
+      max-width: 78ch;       /* readable line length */
     }
 
     hr{
@@ -109,6 +107,7 @@
       border-top: 1px solid var(--line);
     }
 
+    /* ✅ FLATTEN PANELS (uniform look, no “primary/secondary”) */
     .panel{
       border: 1px solid var(--panelBorder);
       border-radius: 14px;
@@ -201,7 +200,7 @@
       font-weight: 800;
     }
 
-    /* ✅ Operating Model bullets tightened */
+    /* Operating Model bullets tightened */
     .bullets{
       margin: 0;
       padding-left: 18px;
@@ -209,19 +208,10 @@
       font-size: 15px;
       line-height: 1.68;
     }
-    .bullets li{ margin: 6px 0; } /* was 8px */
+    .bullets li{ margin: 6px 0; }
     .bullets li::marker{ color: rgba(91,111,135,.85); }
 
-    /* ✅ De-emphasize secondary (Policies) / emphasize primary (Contact) */
-    .panel.primary{
-      background: var(--panelBgStrong);
-    }
-    .panel.secondary{
-      background: #edf3fb; /* slightly lighter/flatter than base */
-      box-shadow: 0 10px 26px rgba(15,23,42,.08);
-    }
-
-    /* Footer (unchanged per request) */
+    /* Footer (leave as-is) */
     .footer{
       margin-top: 40px;
       padding-top: 18px;
@@ -238,6 +228,7 @@
     @media (max-width: 900px){
       .grid{ grid-template-columns: 1fr; }
       .kv{ grid-template-columns: 1fr; }
+      .lead{ max-width: 100%; } /* prevent awkward wrapping on small screens */
     }
 
     @media (max-width: 820px){
@@ -247,7 +238,6 @@
       }
       .wrap{ padding: 18px 16px 86px; }
       h1{ font-size: 32px; letter-spacing: -0.7px; }
-      .hero-blocks{ max-width: 74ch; }
       .btn{ width: 100%; }
     }
   </style>
@@ -306,7 +296,7 @@
 
       <div class="grid">
 
-        <div class="panel primary">
+        <div class="panel">
           <h2>Contact</h2>
           <div class="row">
             <div>
@@ -318,7 +308,7 @@
           </div>
         </div>
 
-        <div class="panel secondary">
+        <div class="panel">
           <h2>Policies</h2>
           <p class="meta policy-links">
             <a href="/privacy.html">Privacy</a>
