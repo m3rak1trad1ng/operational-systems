@@ -13,7 +13,6 @@
 
   <style>
     :root{
-      /* Operational Systems (locked family) */
       --bg:#cfd7e2;
       --frame:#eef2f7;
       --frameBorder:rgba(15,23,42,.28);
@@ -26,6 +25,8 @@
       --text:#0b1220;
       --muted:#42566d;
       --muted2:#5b6f87;
+
+      --divider:rgba(100,116,139,.18);
 
       --link:#244f72;
       --linkActive:#0b1220;
@@ -56,14 +57,14 @@
 
     .wrap{ padding:26px 26px 72px; }
 
-    /* Top policy nav (centered) */
+    /* Top policy nav (centered like main) */
     .policy-nav{
       display:flex;
       justify-content:center;
       gap:18px;
       font-size:13px;
       font-weight:800;
-      margin:0 0 16px 0;
+      margin:0 0 18px 0;
     }
     .policy-nav a{
       color:var(--link);
@@ -76,28 +77,37 @@
       text-decoration:none;
     }
 
+    /* Header block matches main page: centered title, left-aligned copy block */
+    header{
+      text-align:center;
+      margin-top: 6px;
+    }
+
     h1{
-      margin:0 0 14px 0;
+      margin:0 0 12px 0;
       font-size:46px;
       line-height:1.06;
       letter-spacing:-1px;
       font-weight:800;
-      text-align:center;
+      color:#0b1220;
     }
 
-    .intro{
-      margin:0 auto;
+    .hero-block{
       max-width:78ch;
+      margin: 0 auto;
+      text-align:left; /* ✅ like main page */
+    }
+
+    .lead{
+      margin:0;
       font-size:16px;
-      line-height:1.7;
+      line-height:1.75;
       color:var(--muted);
       font-weight:500;
       text-wrap:pretty;
-      text-align:center;
     }
-    .intro + .intro{ margin-top:10px; }
+    .lead + .lead{ margin-top:12px; }
 
-    /* One unified policy panel (no internal dividers) */
     .panel{
       margin:22px auto 0;
       max-width: 900px;
@@ -131,7 +141,7 @@
     .footer{
       margin-top:40px;
       padding-top:18px;
-      border-top:1px solid rgba(100,116,139,.18);
+      border-top:1px solid var(--divider);
       font-size:13px;
       color:var(--muted2);
     }
@@ -139,7 +149,7 @@
     @media (max-width:900px){
       .wrap{ padding:18px 16px 86px; }
       h1{ font-size:32px; letter-spacing:-0.7px; }
-      .intro{ max-width:100%; }
+      .hero-block{ max-width:100%; }
       .panel{ max-width: 100%; }
     }
   </style>
@@ -155,16 +165,20 @@
         <a href="/terms.html">Terms</a>
       </nav>
 
-      <h1>Privacy</h1>
+      <header>
+        <h1>Privacy</h1>
 
-      <p class="intro">
-        This website is maintained for general informational and administrative reference purposes only.
-        It is not operated as a consumer-facing platform and does not provide user accounts, transactions,
-        or interactive services.
-      </p>
-      <p class="intro">
-        Operational Systems, LLC does not collect, store, process, or analyze personal data through this website.
-      </p>
+        <div class="hero-block">
+          <p class="lead">
+            This website is maintained for general informational and administrative reference purposes only.
+            It is not operated as a consumer-facing platform and does not provide user accounts, transactions,
+            or interactive services.
+          </p>
+          <p class="lead">
+            Operational Systems, LLC does not collect, store, process, or analyze personal data through this website.
+          </p>
+        </div>
+      </header>
 
       <div class="panel" role="region" aria-label="Privacy sections">
         <div class="section">
