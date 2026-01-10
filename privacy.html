@@ -32,7 +32,6 @@
       --linkActive:#0b1220;
 
       --max:980px;
-      --contentMax:900px;
     }
 
     *{ box-sizing:border-box; }
@@ -58,6 +57,7 @@
 
     .wrap{ padding:26px 26px 72px; }
 
+    /* Top policy nav */
     .policy-nav{
       display:flex;
       justify-content:center;
@@ -70,7 +70,6 @@
       color:var(--link);
       text-decoration:none;
     }
-    .policy-nav a:hover{ text-decoration:underline; }
     .policy-nav a.active{
       color:var(--linkActive);
       cursor:default;
@@ -79,7 +78,7 @@
 
     header{
       text-align:center;
-      margin-top: 2px;
+      margin-top:2px;
     }
 
     h1{
@@ -91,19 +90,25 @@
       color:#0b1220;
     }
 
+    /* ===== ONLY CHANGE: System Index–style container ===== */
+    .hero-copy{
+      max-width:78ch;
+      margin:0 auto;
+      text-align:left;
+    }
+
     .lead{
       margin:0;
       font-size:16px;
       line-height:1.75;
       color:var(--muted);
       font-weight:500;
-      text-wrap:pretty;
     }
     .lead + .lead{ margin-top:12px; }
 
     .panel{
       margin:18px auto 0;
-      max-width: var(--contentMax);
+      max-width:900px;
       background:var(--panelBg);
       border:1px solid var(--panelBorder);
       border-radius:14px;
@@ -111,9 +116,9 @@
       box-shadow:var(--panelShadow);
     }
 
-    .section{ padding: 14px 0; }
-    .section:first-child{ padding-top: 0; }
-    .section:last-child{ padding-bottom: 0; }
+    .section{ padding:14px 0; }
+    .section:first-child{ padding-top:0; }
+    .section:last-child{ padding-bottom:0; }
 
     .section h2{
       margin:0 0 9px 0;
@@ -142,7 +147,8 @@
     @media (max-width:900px){
       .wrap{ padding:18px 16px 86px; }
       h1{ font-size:32px; letter-spacing:-0.7px; }
-      .panel{ max-width: 100%; }
+      .hero-copy{ max-width:100%; }
+      .panel{ max-width:100%; }
     }
   </style>
 </head>
@@ -160,15 +166,14 @@
       <header>
         <h1>Privacy</h1>
 
-        <!-- ONLY CHANGE: use the System Index layout container + left-aligned paragraphs -->
-        <div style="max-width:86ch; margin:0 auto;">
-          <p class="lead" style="text-align:left; line-height:1.65;">
+        <!-- ONLY MOVED INTO System Index–style container -->
+        <div class="hero-copy">
+          <p class="lead">
             This website is maintained for general informational and administrative reference purposes only.
             It is not operated as a consumer-facing platform and does not provide user accounts, transactions,
             or interactive services.
           </p>
-
-          <p class="lead" style="margin-top:12px; text-align:left; line-height:1.65;">
+          <p class="lead">
             Operational Systems, LLC does not collect, store, process, or analyze personal data through this website.
           </p>
         </div>
@@ -206,8 +211,7 @@
           <p class="meta">
             Operational Systems, LLC operates under a data-minimization philosophy.
             The company does not use personal data for advertising, profiling, lead generation,
-            resale, or secondary purposes. These principles reflect baseline privacy practices
-            applied across company-operated platforms, regardless of delivery method.
+            resale, or secondary purposes.
           </p>
         </div>
 
@@ -215,32 +219,31 @@
           <h2>Communications</h2>
           <p class="meta">
             If you choose to contact the company via email, any information provided is used solely
-            to respond to the specific administrative inquiry. Email correspondence is not used
-            for marketing or analytics.
+            to respond to the specific administrative inquiry.
           </p>
         </div>
 
         <div class="section">
           <h2>Security</h2>
           <p class="meta">
-            Reasonable administrative and technical measures are used to help protect communications and website operations.
-            However, no method of transmission or storage is completely secure.
+            Reasonable administrative and technical measures are used to help protect communications
+            and website operations. However, no method of transmission or storage is completely secure.
           </p>
         </div>
 
         <div class="section">
           <h2>Disclosure &amp; Third-Party Access</h2>
           <p class="meta">
-            No personal data is sold, shared, or disclosed through this website except as required by applicable law
-            or valid legal process.
+            No personal data is sold, shared, or disclosed through this website except as required
+            by applicable law or valid legal process.
           </p>
         </div>
 
         <div class="section">
           <h2>Applicability &amp; Scope</h2>
           <p class="meta">
-            This document governs this website and describes the baseline privacy principles maintained by Operational Systems, LLC.
-            Independently branded platforms may publish supplemental policies as appropriate, consistent with these principles.
+            This document governs this website and describes the baseline privacy principles
+            maintained by Operational Systems, LLC.
           </p>
         </div>
       </div>
