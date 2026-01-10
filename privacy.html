@@ -27,8 +27,6 @@
       --muted:#42566d;
       --muted2:#5b6f87;
 
-      --divider:rgba(100,116,139,.18);
-
       --link:#244f72;
       --linkActive:#0b1220;
 
@@ -58,13 +56,14 @@
 
     .wrap{ padding:26px 26px 72px; }
 
-    /* Top policy nav (Choice 1 locked) */
+    /* Top policy nav (centered) */
     .policy-nav{
       display:flex;
+      justify-content:center;
       gap:18px;
       font-size:13px;
       font-weight:800;
-      margin:0 0 18px 0;
+      margin:0 0 16px 0;
     }
     .policy-nav a{
       color:var(--link);
@@ -83,22 +82,25 @@
       line-height:1.06;
       letter-spacing:-1px;
       font-weight:800;
+      text-align:center;
     }
 
     .intro{
-      margin:0;
+      margin:0 auto;
       max-width:78ch;
       font-size:16px;
       line-height:1.7;
       color:var(--muted);
       font-weight:500;
       text-wrap:pretty;
+      text-align:center;
     }
     .intro + .intro{ margin-top:10px; }
 
-    /* One unified policy panel */
+    /* One unified policy panel (no internal dividers) */
     .panel{
-      margin-top:22px;
+      margin:22px auto 0;
+      max-width: 900px;
       background:var(--panelBg);
       border:1px solid var(--panelBorder);
       border-radius:14px;
@@ -106,15 +108,9 @@
       box-shadow:var(--panelShadow);
     }
 
-    .section{
-      padding:14px 0;
-      border-top:1px solid var(--divider);
-    }
-    .section:first-child{
-      padding-top:0;
-      border-top:none;
-    }
-    .section:last-child{ padding-bottom:0; }
+    .section{ padding: 12px 0; }
+    .section:first-child{ padding-top: 0; }
+    .section:last-child{ padding-bottom: 0; }
 
     .section h2{
       margin:0 0 10px 0;
@@ -135,7 +131,7 @@
     .footer{
       margin-top:40px;
       padding-top:18px;
-      border-top:1px solid var(--divider);
+      border-top:1px solid rgba(100,116,139,.18);
       font-size:13px;
       color:var(--muted2);
     }
@@ -144,6 +140,7 @@
       .wrap{ padding:18px 16px 86px; }
       h1{ font-size:32px; letter-spacing:-0.7px; }
       .intro{ max-width:100%; }
+      .panel{ max-width: 100%; }
     }
   </style>
 </head>
@@ -169,7 +166,7 @@
         Operational Systems, LLC does not collect, store, process, or analyze personal data through this website.
       </p>
 
-      <div class="panel" role="region" aria-label="Privacy policy sections">
+      <div class="panel" role="region" aria-label="Privacy sections">
         <div class="section">
           <h2>Information Collection Practices</h2>
           <p class="meta">
@@ -218,25 +215,24 @@
         <div class="section">
           <h2>Security</h2>
           <p class="meta">
-            Reasonable administrative and technical measures are used to help protect communications
-            and website operations. However, no method of transmission or storage is completely secure.
+            Reasonable administrative and technical measures are used to help protect communications and website operations.
+            However, no method of transmission or storage is completely secure.
           </p>
         </div>
 
         <div class="section">
           <h2>Disclosure &amp; Third-Party Access</h2>
           <p class="meta">
-            No personal data is sold, shared, or disclosed through this website except as required
-            by applicable law or valid legal process.
+            No personal data is sold, shared, or disclosed through this website except as required by applicable law
+            or valid legal process.
           </p>
         </div>
 
         <div class="section">
           <h2>Applicability &amp; Scope</h2>
           <p class="meta">
-            This document governs this website and describes baseline privacy principles maintained by
-            Operational Systems, LLC. Independently branded platforms may publish supplemental policies
-            as appropriate, consistent with these principles.
+            This document governs this website and describes the baseline privacy principles maintained by Operational Systems, LLC.
+            Independently branded platforms may publish supplemental policies as appropriate, consistent with these principles.
           </p>
         </div>
       </div>
