@@ -33,6 +33,7 @@
       --accentHover:#244f72;
       --accentText:#ffffff;
       --link:#244f72;
+      --linkActive:#0b1220;
 
       --max:980px;
     }
@@ -54,9 +55,30 @@
       border:1px solid var(--frameBorder);
       border-radius:20px;
       box-shadow:var(--frameShadow);
+      overflow:clip;
     }
 
     .wrap{ padding:26px 26px 72px; }
+
+    /* Top nav (matches Privacy page pattern) */
+    .policy-nav{
+      display:flex;
+      justify-content:center;
+      gap:18px;
+      font-size:13px;
+      font-weight:800;
+      margin:0 0 26px 0;
+    }
+    .policy-nav a{
+      color:var(--link);
+      text-decoration:none;
+    }
+    .policy-nav a:hover{ text-decoration:underline; }
+    .policy-nav a.active{
+      color:var(--linkActive);
+      cursor:default;
+      text-decoration:none;
+    }
 
     header{ text-align:center; margin-top:8px; }
 
@@ -92,7 +114,6 @@
       box-shadow:var(--panelShadow);
     }
 
-    /* Subheadings (same sizing), now with subtle underline */
     .panel h2{
       margin:0 0 12px;
       font-size:14px;
@@ -100,14 +121,16 @@
       text-transform:uppercase;
       font-weight:800;
       position:relative;
+      padding-bottom:10px;
     }
     .panel h2::after{
       content:"";
-      display:block;
+      position:absolute;
+      left:0;
+      bottom:0;
       width:96px;
       height:1px;
-      margin-top:8px;
-      background:rgba(100,116,139,.28);
+      background:var(--divider);
       border-radius:999px;
     }
 
@@ -135,6 +158,13 @@
       font-weight:600;
     }
 
+    .grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+      margin-top:16px;
+    }
+
     .meta{
       margin:0;
       font-size:15px;
@@ -142,13 +172,12 @@
       color:var(--muted);
     }
 
-    /* Bottom two-column area inside the single panel */
-    .bottom-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:16px;
-      margin-top:14px;
+    a{
+      color:var(--link);
+      font-weight:800;
+      text-decoration:none;
     }
+    a:hover{ text-decoration:underline; }
 
     .footer{
       margin-top:40px;
@@ -159,8 +188,8 @@
     }
 
     @media (max-width:900px){
+      .grid{ grid-template-columns:1fr; }
       .kv{ grid-template-columns:1fr; }
-      .bottom-grid{ grid-template-columns:1fr; }
       .lead{ max-width:100%; }
     }
 
@@ -175,6 +204,12 @@
   <div class="page-frame">
     <div class="wrap">
 
+      <nav class="policy-nav" aria-label="Policy navigation">
+        <a class="active" aria-current="page">Home</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+      </nav>
+
       <header>
         <h1>Operational Systems, LLC</h1>
       </header>
@@ -185,9 +220,8 @@
         <p class="lead" style="margin-bottom:0;">The company focuses on system design and governance rather than creative services or custom implementation. Solutions are delivered through independently branded platforms aligned to specific industries, and this website is maintained for general informational and administrative purposes.</p>
       </div>
 
-      <!-- ONE BIG BOX (same positioning inside) -->
+      <!-- ONE BIG BOX (Policies block removed; Contact stays in same visual area) -->
       <div class="panel">
-
         <h2>Operating Model</h2>
         <ul class="bullets">
           <li>Systems are designed as standardized frameworks intended for long-term organizational use.</li>
@@ -197,7 +231,7 @@
           <li>This site is maintained for administrative reference, policy disclosure, and entity verification.</li>
         </ul>
 
-        <div style="height:16px;"></div>
+        <div style="height:18px;"></div>
 
         <h2>Company Summary</h2>
         <div class="kv">
@@ -209,21 +243,17 @@
           <div class="k">Public sales</div><div class="v">Not offered on this site</div>
         </div>
 
-        <div class="bottom-grid">
+        <div style="height:18px;"></div>
+
+        <!-- Contact stays in the same general visual location; Policies removed -->
+        <div class="grid">
           <div>
             <h2>Contact</h2>
-            <p class="meta"><strong>Email:</strong> admin@operational-systems.com</p>
+            <p class="meta"><strong>Email:</strong> <a href="mailto:admin@operational-systems.com">admin@operational-systems.com</a></p>
             <p class="meta" style="margin-top:8px;">Administrative inquiries.</p>
             <p class="meta" style="margin-top:6px;">Response time: 1–2 business days.</p>
           </div>
-
-          <div>
-            <h2>Policies</h2>
-            <p class="meta"><strong>Privacy</strong>&nbsp;&nbsp;&nbsp;<strong>Terms</strong></p>
-            <p class="meta" style="margin-top:10px;">This site does not collect personal data, use analytics, or process transactions.</p>
-          </div>
         </div>
-
       </div>
 
       <div class="footer">
