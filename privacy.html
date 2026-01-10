@@ -13,39 +13,88 @@
 
   <style>
     :root{
-      --bg:#cfd7e2;
-      --frame:#eef2f7;
-      --frameBorder:rgba(15,23,42,.28);
-      --frameShadow:0 28px 80px rgba(15,23,42,.18);
+      /* Dark theme (match Terms) */
+      --bgTop:#0b1220;
+      --bg:#0f172a;
 
-      --panelBg:#e8eef7;
-      --panelBorder:rgba(100,116,139,.32);
-      --panelShadow:0 14px 34px rgba(15,23,42,.10);
+      --frame:#111827;
+      --frameBorder:rgba(148,163,184,.18);
+      --frameShadow:0 28px 80px rgba(0,0,0,.45);
 
-      --text:#0b1220;
-      --muted:#42566d;
-      --muted2:#5b6f87;
+      --panelBg:#0f172a;
+      --panelBorder:rgba(148,163,184,.18);
+      --panelShadow:0 14px 34px rgba(0,0,0,.28);
 
-      --divider:rgba(100,116,139,.18);
+      --text:#e5e7eb;
+      --muted:#a7b0bf;
+      --muted2:#94a3b8;
 
-      --link:#244f72;
-      --linkActive:#0b1220;
+      --divider:rgba(148,163,184,.18);
+
+      --link:rgba(226,232,240,.85);
+      --linkHover:rgba(226,232,240,.98);
 
       --max:980px;
 
       /* KEEP: matches your panel width */
       --contentMax:900px;
+
+      --topbarH:52px;
+      --line:rgba(148,163,184,.18);
     }
 
     *{ box-sizing:border-box; }
 
     body{
       margin:0;
-      background:var(--bg);
+      background: linear-gradient(180deg, var(--bgTop), var(--bg));
       color:var(--text);
       font-family:"Inter",ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
+    }
+
+    /* Top nav OUTSIDE the frame (match Terms) */
+    .topbar{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(15,23,42,.82);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .topbar-inner{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 8px 18px;
+      min-height: var(--topbarH);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .nav{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+    .nav a{
+      font-size: 13px;
+      font-weight: 650;
+      color: rgba(226,232,240,.78);
+      text-decoration: none;
+      padding: 7px 10px;
+      border-radius: 999px;
+      transition: background .12s ease, color .12s ease;
+    }
+    .nav a:hover{
+      background: rgba(226,232,240,.10);
+      color: rgba(226,232,240,.95);
+    }
+    .nav a.active{
+      background: rgba(226,232,240,.14);
+      color: rgba(226,232,240,.98);
     }
 
     .page-frame{
@@ -60,26 +109,6 @@
 
     .wrap{ padding:26px 26px 72px; }
 
-    /* Top policy nav */
-    .policy-nav{
-      display:flex;
-      justify-content:center;
-      gap:18px;
-      font-size:13px;
-      font-weight:800;
-      margin:0 0 26px 0;
-    }
-    .policy-nav a{
-      color:var(--link);
-      text-decoration:none;
-    }
-    .policy-nav a:hover{ text-decoration:underline; }
-    .policy-nav a.active{
-      color:var(--linkActive);
-      cursor:default;
-      text-decoration:none;
-    }
-
     header{
       text-align:center; /* keep title centered */
       margin-top: 2px;
@@ -91,11 +120,10 @@
       line-height:1.06;
       letter-spacing:-1px;
       font-weight:800;
-      color:#0b1220;
+      color: var(--text);
     }
 
-    /* ✅ ONLY CHANGE: make the top copy sit like your Main Page / System Index:
-       same centered column width, but LEFT-aligned text inside it. */
+    /* Keep the System Index-style layout container you already implemented */
     .hero-text{
       max-width: var(--contentMax);
       margin: 0 auto;
@@ -122,7 +150,7 @@
       box-shadow:var(--panelShadow);
     }
 
-    /* No dividers */
+    /* No dividers between sections */
     .section{ padding: 14px 0; }
     .section:first-child{ padding-top: 0; }
     .section:last-child{ padding-bottom: 0; }
@@ -133,7 +161,7 @@
       letter-spacing:.45px;
       text-transform:uppercase;
       font-weight:800;
-      color:#0b1220;
+      color: rgba(226,232,240,.92);
     }
 
     .meta{
@@ -161,19 +189,23 @@
 </head>
 
 <body>
-  <div class="page-frame">
-    <div class="wrap">
-
-      <nav class="policy-nav" aria-label="Policy navigation">
-        <a href="/">Home</a>
-        <a class="active" aria-current="page">Privacy</a>
+  <!-- Nav outside the frame -->
+  <div class="topbar" id="topbar">
+    <div class="topbar-inner">
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="/index.html">Home</a>
+        <a class="active" aria-current="page" href="/privacy.html">Privacy</a>
         <a href="/terms.html">Terms</a>
       </nav>
+    </div>
+  </div>
+
+  <div class="page-frame">
+    <div class="wrap">
 
       <header>
         <h1>Privacy</h1>
 
-        <!-- TOP COPY (layout fixed to match Main / System Index) -->
         <div class="hero-text">
           <p class="lead">
             This website is maintained for general informational and administrative reference purposes only.
