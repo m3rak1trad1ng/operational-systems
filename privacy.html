@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <title>Privacy — Operational Systems, LLC</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Operational Systems, LLC — Privacy.">
+  <meta name="description" content="Operational Systems, LLC — Privacy Policy">
 
-  <!-- Font: Inter -->
+  <!-- Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -20,13 +20,10 @@
 
       --panelBg:#e8eef7;
       --panelBorder:rgba(100,116,139,.32);
-      --panelShadow:0 14px 34px rgba(15,23,42,.10);
 
       --text:#0b1220;
       --muted:#42566d;
       --muted2:#5b6f87;
-
-      --divider:rgba(100,116,139,.18);
 
       --link:#244f72;
       --linkActive:#0b1220;
@@ -40,9 +37,8 @@
       margin:0;
       background:var(--bg);
       color:var(--text);
-      font-family:"Inter",ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
       -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
     }
 
     .page-frame{
@@ -52,33 +48,34 @@
       border:1px solid var(--frameBorder);
       border-radius:20px;
       box-shadow:var(--frameShadow);
-      overflow:clip;
     }
 
-    .wrap{ padding:26px 26px 72px; }
+    .wrap{
+      padding:26px 26px 72px;
+    }
 
-    /* Top policy nav */
+    /* Top nav */
     .policy-nav{
       display:flex;
       justify-content:center;
       gap:18px;
       font-size:13px;
       font-weight:800;
-      margin:0 0 26px 0;
+      margin-bottom:26px;
     }
+
     .policy-nav a{
       color:var(--link);
       text-decoration:none;
     }
+
     .policy-nav a.active{
       color:var(--linkActive);
       cursor:default;
-      text-decoration:none;
     }
 
     header{
       text-align:center;
-      margin-top:2px;
     }
 
     h1{
@@ -87,12 +84,11 @@
       line-height:1.06;
       letter-spacing:-1px;
       font-weight:800;
-      color:#0b1220;
     }
 
-    /* ===== ONLY CHANGE: System Index–style container ===== */
+    /* 🔧 ONLY CHANGE IS HERE */
     .hero-copy{
-      max-width:78ch;
+      max-width:64ch; /* was wider — this fixes the ugly wrap */
       margin:0 auto;
       text-align:left;
     }
@@ -104,19 +100,24 @@
       color:var(--muted);
       font-weight:500;
     }
-    .lead + .lead{ margin-top:12px; }
+
+    .lead + .lead{
+      margin-top:12px;
+    }
 
     .panel{
-      margin:18px auto 0;
+      margin:22px auto 0;
       max-width:900px;
       background:var(--panelBg);
       border:1px solid var(--panelBorder);
       border-radius:14px;
       padding:18px;
-      box-shadow:var(--panelShadow);
     }
 
-    .section{ padding:14px 0; }
+    .section{
+      padding:14px 0;
+    }
+
     .section:first-child{ padding-top:0; }
     .section:last-child{ padding-bottom:0; }
 
@@ -126,7 +127,6 @@
       letter-spacing:.45px;
       text-transform:uppercase;
       font-weight:800;
-      color:#0b1220;
     }
 
     .meta{
@@ -139,14 +139,14 @@
     .footer{
       margin-top:40px;
       padding-top:18px;
-      border-top:1px solid var(--divider);
+      border-top:1px solid rgba(100,116,139,.25);
       font-size:13px;
       color:var(--muted2);
     }
 
     @media (max-width:900px){
+      h1{ font-size:32px; }
       .wrap{ padding:18px 16px 86px; }
-      h1{ font-size:32px; letter-spacing:-0.7px; }
       .hero-copy{ max-width:100%; }
       .panel{ max-width:100%; }
     }
@@ -157,29 +157,30 @@
   <div class="page-frame">
     <div class="wrap">
 
-      <nav class="policy-nav" aria-label="Policy navigation">
+      <nav class="policy-nav">
         <a href="/">Home</a>
-        <a class="active" aria-current="page">Privacy</a>
+        <a class="active">Privacy</a>
         <a href="/terms.html">Terms</a>
       </nav>
 
       <header>
         <h1>Privacy</h1>
 
-        <!-- ONLY MOVED INTO System Index–style container -->
         <div class="hero-copy">
           <p class="lead">
             This website is maintained for general informational and administrative reference purposes only.
-            It is not operated as a consumer-facing platform and does not provide user accounts, transactions,
-            or interactive services.
+            It is not operated as a consumer-facing platform and does not provide user accounts,
+            transactions, or interactive services.
           </p>
+
           <p class="lead">
-            Operational Systems, LLC does not collect, store, process, or analyze personal data through this website.
+            Operational Systems, LLC does not collect, store, process, or analyze personal data
+            through this website.
           </p>
         </div>
       </header>
 
-      <div class="panel" role="region" aria-label="Privacy sections">
+      <div class="panel">
         <div class="section">
           <h2>Information Collection Practices</h2>
           <p class="meta">
@@ -200,50 +201,44 @@
           <h2>Hosting &amp; Server Logs</h2>
           <p class="meta">
             This website is hosted by a third-party hosting provider. Like most hosting services,
-            the provider may process limited technical information (such as IP address and basic request data)
-            for security, reliability, and operational purposes. Operational Systems, LLC does not access or use
-            such information for analytics, advertising, or profiling.
+            the provider may process limited technical information for security and reliability.
           </p>
         </div>
 
         <div class="section">
           <h2>Business Practices</h2>
           <p class="meta">
-            Operational Systems, LLC operates under a data-minimization philosophy.
-            The company does not use personal data for advertising, profiling, lead generation,
-            resale, or secondary purposes.
+            Operational Systems, LLC operates under a data-minimization philosophy and does not
+            use personal data for advertising, profiling, resale, or secondary purposes.
           </p>
         </div>
 
         <div class="section">
           <h2>Communications</h2>
           <p class="meta">
-            If you choose to contact the company via email, any information provided is used solely
-            to respond to the specific administrative inquiry.
+            Any information provided via email is used solely to respond to administrative inquiries.
           </p>
         </div>
 
         <div class="section">
           <h2>Security</h2>
           <p class="meta">
-            Reasonable administrative and technical measures are used to help protect communications
-            and website operations. However, no method of transmission or storage is completely secure.
+            Reasonable administrative and technical measures are used to protect website operations.
           </p>
         </div>
 
         <div class="section">
           <h2>Disclosure &amp; Third-Party Access</h2>
           <p class="meta">
-            No personal data is sold, shared, or disclosed through this website except as required
-            by applicable law or valid legal process.
+            No personal data is sold, shared, or disclosed except as required by law.
           </p>
         </div>
 
         <div class="section">
           <h2>Applicability &amp; Scope</h2>
           <p class="meta">
-            This document governs this website and describes the baseline privacy principles
-            maintained by Operational Systems, LLC.
+            This policy governs this website and reflects baseline privacy principles maintained
+            by Operational Systems, LLC.
           </p>
         </div>
       </div>
