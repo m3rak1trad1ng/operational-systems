@@ -32,7 +32,7 @@
       --linkActive:#0b1220;
 
       --max:980px;
-      --contentMax:900px; /* shared column width for hero + panel */
+      --contentMax:900px; /* panel width */
     }
 
     *{ box-sizing:border-box; }
@@ -79,8 +79,8 @@
     }
 
     header{
-      text-align:center;
-      margin-top: 2px;
+      text-align:center; /* keep H1 centered */
+      margin-top:2px;
     }
 
     h1{
@@ -90,13 +90,6 @@
       letter-spacing:-1px;
       font-weight:800;
       color:#0b1220;
-    }
-
-    /* ✅ Hero copy column matches panel width (anchors the page) */
-    .hero-block{
-      max-width: var(--contentMax);
-      margin: 0 auto;
-      text-align:left;
     }
 
     .lead{
@@ -109,6 +102,13 @@
     }
     .lead + .lead{ margin-top:12px; }
 
+    /* ✅ ONLY CHANGE: System Index style column for the two lead paragraphs */
+    .hero-index{
+      max-width:86ch;     /* matches your System Index block behavior */
+      margin:0 auto;      /* centered column */
+      text-align:left;    /* left-aligned text inside */
+    }
+
     .panel{
       margin:18px auto 0;
       max-width: var(--contentMax);
@@ -119,12 +119,10 @@
       box-shadow:var(--panelShadow);
     }
 
-    /* ✅ Slightly more internal rhythm; no dividers */
-    .section{ padding: 14px 0; }
-    .section:first-child{ padding-top: 0; }
-    .section:last-child{ padding-bottom: 0; }
+    .section{ padding:14px 0; }
+    .section:first-child{ padding-top:0; }
+    .section:last-child{ padding-bottom:0; }
 
-    /* ✅ Soften headers: tiny size drop + slightly calmer spacing */
     .section h2{
       margin:0 0 9px 0;
       font-size:12.5px;
@@ -152,8 +150,8 @@
     @media (max-width:900px){
       .wrap{ padding:18px 16px 86px; }
       h1{ font-size:32px; letter-spacing:-0.7px; }
-      .hero-block{ max-width:100%; }
-      .panel{ max-width: 100%; }
+      .panel{ max-width:100%; }
+      .hero-index{ max-width:100%; } /* responsive only */
     }
   </style>
 </head>
@@ -171,8 +169,8 @@
       <header>
         <h1>Privacy</h1>
 
-        <!-- ONLY CHANGE: place the existing two paragraphs into a centered "System Index"-style column -->
-        <div style="max-width: 86ch; margin: 0 auto; text-align: left;">
+        <!-- ONLY CHANGE AREA: lead text now sits like System Index (narrow centered column, left-aligned) -->
+        <div class="hero-index">
           <p class="lead">
             This website is maintained for general informational and administrative reference purposes only.
             It is not operated as a consumer-facing platform and does not provide user accounts, transactions,
