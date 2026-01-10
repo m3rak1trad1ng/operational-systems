@@ -26,6 +26,7 @@
       --muted:#42566d;
       --muted2:#5b6f87;
 
+      /* softened divider */
       --divider:rgba(100,116,139,.18);
 
       --accent:#2b5f8a;
@@ -67,6 +68,7 @@
       font-weight:800;
     }
 
+    /* HERO */
     .hero-blocks{
       max-width:none;
       margin:0 0 18px;
@@ -74,12 +76,20 @@
     }
 
     .lead{
-      margin:0 0 12px;
+      margin:0 0 12px; /* tightened */
       max-width:78ch;
       font-size:17px;
       line-height:1.65;
       color:var(--muted);
       font-weight:500;
+    }
+
+    /* (kept in CSS but no longer used between sections)
+       Keeping it here avoids unexpected side effects if you re-add later. */
+    hr{
+      margin:42px 0;
+      border:none;
+      border-top:1px solid var(--divider);
     }
 
     .panel{
@@ -114,7 +124,7 @@
     }
     .k{
       font-size:13px;
-      font-weight:600;
+      font-weight:600; /* softened */
       color:rgba(91,111,135,.9);
     }
     .v{
@@ -151,7 +161,7 @@
     a:hover{ text-decoration:underline; }
 
     .btn{
-      padding:10px 18px;
+      padding:10px 18px; /* de-CTA */
       border-radius:12px;
       font-weight:800;
       font-size:14px;
@@ -169,6 +179,10 @@
       font-size:13px;
       color:var(--muted2);
     }
+
+    /* NEW: internal spacing inside the single mega-panel */
+    .panel-block{ margin-top:18px; }
+    .panel-block:first-child{ margin-top:0; }
 
     @media (max-width:900px){
       .grid{ grid-template-columns:1fr; }
@@ -198,50 +212,60 @@
         <p class="lead" style="margin-bottom:0;">The company focuses on system design and governance rather than creative services or custom implementation. Solutions are delivered through independently branded platforms aligned to specific industries, and this website is maintained for general informational and administrative purposes.</p>
       </div>
 
+      <!-- ONE BIG BOX (everything below stays in the same visual positions) -->
       <div class="panel">
-        <h2>Operating Model</h2>
-        <ul class="bullets">
-          <li>Systems are designed as standardized frameworks intended for long-term organizational use.</li>
-          <li>Work focuses on structure, repeatability, and governance rather than creative services or custom campaigns.</li>
-          <li>Each system is delivered as a complete, independently branded platform aligned to a specific industry use case.</li>
-          <li>Products are intended to operate as internal execution infrastructure.</li>
-          <li>This site is maintained for administrative reference, policy disclosure, and entity verification.</li>
-        </ul>
-      </div>
 
-      <div class="panel">
-        <h2>Company Summary</h2>
-        <div class="kv">
-          <div class="k">Entity</div><div class="v">Operational Systems, LLC</div>
-          <div class="k">Entity Type</div><div class="v">Limited Liability Company (LLC)</div>
-          <div class="k">Business Type</div><div class="v">Digital systems, templates & operational assets</div>
-          <div class="k">Purpose</div><div class="v">Administrative reference & verification</div>
-          <div class="k">Distribution</div><div class="v">Independently branded websites</div>
-          <div class="k">Public sales</div><div class="v">Not offered on this site</div>
+        <!-- Operating Model -->
+        <div class="panel-block">
+          <h2>Operating Model</h2>
+          <ul class="bullets">
+            <li>Systems are designed as standardized frameworks intended for long-term organizational use.</li>
+            <li>Work focuses on structure, repeatability, and governance rather than creative services or custom campaigns.</li>
+            <li>Each system is delivered as a complete, independently branded platform aligned to a specific industry use case.</li>
+            <li>Products are intended to operate as internal execution infrastructure.</li>
+            <li>This site is maintained for administrative reference, policy disclosure, and entity verification.</li>
+          </ul>
         </div>
-      </div>
 
-      <div class="grid">
-        <div class="panel">
-          <h2>Contact</h2>
-          <div class="row">
-            <div>
-              <p class="meta"><strong>Email:</strong> <a href="mailto:admin@operational-systems.com">admin@operational-systems.com</a></p>
-              <p class="meta" style="margin-top:8px;">Administrative inquiries.</p>
-              <p class="meta" style="margin-top:6px;">Response time: 1–2 business days.</p>
-            </div>
-            <a class="btn" href="mailto:admin@operational-systems.com">Email</a>
+        <!-- Company Summary -->
+        <div class="panel-block">
+          <h2>Company Summary</h2>
+          <div class="kv">
+            <div class="k">Entity</div><div class="v">Operational Systems, LLC</div>
+            <div class="k">Entity Type</div><div class="v">Limited Liability Company (LLC)</div>
+            <div class="k">Business Type</div><div class="v">Digital systems, templates & operational assets</div>
+            <div class="k">Purpose</div><div class="v">Administrative reference & verification</div>
+            <div class="k">Distribution</div><div class="v">Independently branded websites</div>
+            <div class="k">Public sales</div><div class="v">Not offered on this site</div>
           </div>
         </div>
 
-        <div class="panel">
-          <h2>Policies</h2>
-          <p class="meta">
-            <a href="/privacy.html">Privacy</a>&nbsp;&nbsp;
-            <a href="/terms.html">Terms</a>
-          </p>
-          <p class="meta" style="margin-top:10px;">This site does not collect personal data, use analytics, or process transactions.</p>
+        <!-- Contact + Policies (kept as 2-col grid in same place) -->
+        <div class="panel-block">
+          <div class="grid">
+            <div>
+              <h2>Contact</h2>
+              <div class="row">
+                <div>
+                  <p class="meta"><strong>Email:</strong> <a href="mailto:admin@operational-systems.com">admin@operational-systems.com</a></p>
+                  <p class="meta" style="margin-top:8px;">Administrative inquiries.</p>
+                  <p class="meta" style="margin-top:6px;">Response time: 1–2 business days.</p>
+                </div>
+                <a class="btn" href="mailto:admin@operational-systems.com">Email</a>
+              </div>
+            </div>
+
+            <div>
+              <h2>Policies</h2>
+              <p class="meta">
+                <a href="/privacy.html">Privacy</a>&nbsp;&nbsp;
+                <a href="/terms.html">Terms</a>
+              </p>
+              <p class="meta" style="margin-top:10px;">This site does not collect personal data, use analytics, or process transactions.</p>
+            </div>
+          </div>
         </div>
+
       </div>
 
       <div class="footer">
