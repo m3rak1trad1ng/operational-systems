@@ -6,35 +6,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Operational Systems, LLC — administrative reference information.">
 
-  <!-- Font: Inter (match Real Estate) -->
+  <!-- Font: Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      /* Shared system (matches Real Estate), with subtle OS differentiation */
-      --bg: #c9d0d8;                 /* slightly cooler than RE */
-      --frame: #edf0f4;              /* same frame */
-      --frameBorder: rgba(15, 23, 42, 0.35);
-      --frameShadow: 0 32px 90px rgba(15, 23, 42, 0.22);
+      /* ✅ Operational Systems colorway (distinct from Real Estate) */
+      --bg: #cfd7e2;               /* cool slate background */
+      --frame: #eef2f7;            /* slightly cooler frame */
+      --frameBorder: rgba(15, 23, 42, 0.28);
+      --frameShadow: 0 28px 80px rgba(15, 23, 42, 0.18);
 
-      --panelBg: #f5f7fa;            /* off-white panels (less bright than pure white) */
+      /* ✅ Tinted panels (NOT white) */
+      --panelBg: #e8eef7;
+      --panelBorder: rgba(100,116,139,.32);
+      --panelShadow: 0 14px 34px rgba(15,23,42,.10);
 
-      --text: #0f172a;
-      --muted: #475569;
-      --muted2:#64748b;
-      --line: rgba(148,163,184,.45);
+      --text: #0b1220;
+      --muted: #42566d;
+      --muted2:#5b6f87;
+      --line: rgba(100,116,139,.28);
 
-      /* Slightly muted accent (same green family) */
-      --accent: #0f6b64;
-      --accentHover: #0d5c56;
+      /* ✅ Admin accent (muted blue, not green) */
+      --accent: #2b5f8a;
+      --accentHover: #244f72;
       --accentText: #ffffff;
+
+      --link: #244f72;
 
       --max: 980px;
     }
 
     *{ box-sizing: border-box; }
+
+    html{ scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior: auto; }
+      *{ transition: none !important; }
+    }
 
     body{
       margin: 0;
@@ -45,7 +56,6 @@
       -moz-osx-font-smoothing: grayscale;
     }
 
-    /* Content frame (same structure as Real Estate) */
     .page-frame{
       max-width: var(--max);
       margin: 16px auto 28px;
@@ -57,7 +67,7 @@
     }
 
     .wrap{
-      padding: 22px 24px 70px; /* tightened bottom padding */
+      padding: 26px 26px 72px;
     }
 
     header{
@@ -66,7 +76,7 @@
     }
 
     h1{
-      margin: 0 0 22px 0; /* increased spacing under heading */
+      margin: 0 0 18px 0;
       font-size: 46px;
       line-height: 1.06;
       letter-spacing: -1px;
@@ -74,34 +84,35 @@
       color: #0b1220;
     }
 
-    /* Hero copy: match RE rhythm, centered */
+    /* Hero copy: LEFT aligned (admin/doc tone) */
     .hero-blocks{
       max-width: 78ch;
       margin: 0 auto 18px auto;
-      text-align: center;
+      text-align: left;
     }
+
     .lead{
-      margin: 0 0 12px 0;
-      font-size: 18px;    /* bumped to match RE hero feel */
-      line-height: 1.55;  /* tighter */
+      margin: 0 0 14px 0;
+      font-size: 17px;
+      line-height: 1.65;
       color: var(--muted);
       font-weight: 500;
       text-wrap: pretty;
     }
 
     hr{
-      margin: 28px 0;
+      margin: 34px 0;
       border: none;
-      border-top: 1px solid rgba(148,163,184,.35); /* lighter divider */
+      border-top: 1px solid var(--line);
     }
 
-    /* Panels: same component language, less heavy */
+    /* Panels: tinted, lighter borders */
     .panel{
-      border: 1px solid rgba(148,163,184,.45);
-      border-radius: 12px;
-      padding: 16px;
-      background: var(--panelBg); /* less-white boxes */
-      box-shadow: 0 10px 22px rgba(15,23,42,.08); /* reduced shadow */
+      border: 1px solid var(--panelBorder);
+      border-radius: 14px;
+      padding: 18px;
+      background: var(--panelBg);
+      box-shadow: var(--panelShadow);
     }
 
     .panel h2{
@@ -116,16 +127,16 @@
     .kv{
       display: grid;
       grid-template-columns: 170px 1fr;
-      gap: 10px 16px; /* slightly more breathing room */
+      gap: 10px 16px;
       margin-top: 6px;
     }
     .k{
-      color: rgba(100,116,139,.92);
+      color: rgba(91,111,135,.92);
       font-size: 13px;
-      font-weight: 650;
+      font-weight: 700;
     }
     .v{
-      color: #0f172a;
+      color: #0b1220;
       font-size: 13px;
       font-weight: 600;
     }
@@ -138,7 +149,7 @@
 
     .row{
       display: flex;
-      align-items: center; /* better button alignment */
+      align-items: center;
       justify-content: space-between;
       gap: 12px;
       flex-wrap: wrap;
@@ -152,13 +163,12 @@
     }
 
     a{
-      color: rgba(15,23,42,.72);
+      color: var(--link);
       text-decoration: none;
       font-weight: 800;
     }
     a:hover{ text-decoration: underline; }
 
-    /* Button: same shape/behavior, slightly muted accent */
     .btn{
       display: inline-flex;
       align-items: center;
@@ -171,44 +181,48 @@
       text-decoration: none;
       background: var(--accent);
       color: var(--accentText);
-      border: 1px solid rgba(0,0,0,.08);
-      box-shadow: 0 14px 30px rgba(15,107,100,.20);
+      border: 1px solid rgba(0,0,0,.10);
+      box-shadow: 0 14px 30px rgba(36,79,114,.22);
       transition: transform .06s ease, box-shadow .12s ease, background .12s ease;
       white-space: nowrap;
     }
     .btn:hover{
       background: var(--accentHover);
-      box-shadow: 0 16px 34px rgba(15,107,100,.24);
+      box-shadow: 0 16px 34px rgba(36,79,114,.26);
     }
     .btn:active{ transform: translateY(1px); }
 
     .policy-links a{
       display: inline-block;
-      margin-right: 12px; /* slightly tighter */
+      margin-right: 12px;
       margin-bottom: 8px;
       font-weight: 800;
     }
 
-    /* Footer: match RE structure, with tighter link spacing */
+    /* Operating Model section */
+    .bullets{
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.72;
+    }
+    .bullets li{ margin: 8px 0; }
+    .bullets li::marker{ color: rgba(91,111,135,.85); }
+
+    /* Footer: no redundant links */
     .footer{
-      margin-top: 56px;
+      margin-top: 40px;
       padding-top: 18px;
-      border-top: 1px solid rgba(148,163,184,.45);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px 18px;
-      justify-content: space-between;
-      align-items: center;
+      border-top: 1px solid var(--line);
       color: var(--muted2);
       font-size: 13px;
+      display:flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px 18px;
     }
-    .footer a{
-      color: rgba(15,23,42,.72);
-      text-decoration: none;
-      font-weight: 800;
-      margin-right: 12px; /* tightened */
-    }
-    .footer a:hover{ text-decoration: underline; }
 
     @media (max-width: 900px){
       .grid{ grid-template-columns: 1fr; }
@@ -220,8 +234,8 @@
         margin: 12px 12px 22px;
         border-radius: 16px;
       }
-      .wrap{ padding: 18px 16px 90px; }
-      h1{ font-size: 32px; letter-spacing: -0.7px; margin-bottom: 18px; }
+      .wrap{ padding: 18px 16px 86px; }
+      h1{ font-size: 32px; letter-spacing: -0.7px; }
       .btn{ width: 100%; }
     }
   </style>
@@ -247,6 +261,19 @@
         <p class="lead" style="margin-bottom:0;">
           The company focuses on system design and governance rather than creative services or custom implementation. Solutions are delivered through independently branded platforms aligned to specific industries, and this website is maintained for general informational and administrative purposes.
         </p>
+      </div>
+
+      <hr>
+
+      <div class="panel">
+        <h2>Operating Model</h2>
+        <ul class="bullets">
+          <li>Systems are designed as standardized frameworks intended for long-term organizational use.</li>
+          <li>Work focuses on structure, repeatability, and governance—rather than creative services or custom campaigns.</li>
+          <li>Each system is delivered as a complete, independently branded platform aligned to a specific industry use case.</li>
+          <li>Products are intended to operate as internal execution infrastructure, not as one-off creative deliverables.</li>
+          <li>This site is maintained for administrative reference, policy disclosure, and entity verification.</li>
+        </ul>
       </div>
 
       <hr>
@@ -293,11 +320,7 @@
       </div>
 
       <div class="footer">
-        <div>© <a href="https://operational-systems.com">Operational Systems, LLC</a></div>
-        <div>
-          <a href="/privacy.html">Privacy</a>
-          <a href="/terms.html">Terms</a>
-        </div>
+        <div>© Operational Systems, LLC. All rights reserved.</div>
       </div>
 
     </div>
