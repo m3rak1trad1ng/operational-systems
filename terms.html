@@ -13,23 +13,22 @@
 
   <style>
     :root{
-      /* DARKER THEME (still in your blue/graphite family) */
-      --bg:#0e1624;                 /* page background */
-      --topbarBg: rgba(14,22,36,.86);
-      --frame:#121c2c;              /* main frame */
-      --frameBorder: rgba(148,163,184,.22);
-      --frameShadow: 0 30px 90px rgba(0,0,0,.42);
+      /* ✅ MATCH RE INDEX SYSTEM */
+      --bg: #d0d4da;
+      --frame: #edf0f4;
+      --frameBorder: rgba(15, 23, 42, 0.35);
+      --frameShadow: 0 32px 90px rgba(15, 23, 42, 0.22);
 
-      --panelBg:#0f1a2b;            /* inner panel */
-      --panelBorder: rgba(148,163,184,.22);
-      --panelShadow: 0 18px 48px rgba(0,0,0,.28);
+      --text: #0f172a;
+      --muted: #475569;
+      --muted2:#64748b;
 
-      --text:#e7eefb;
-      --muted:#b6c2d6;
-      --muted2:#94a3b8;
-      --line: rgba(148,163,184,.20);
+      --line: rgba(148,163,184,.45);
 
-      --link: #9cc6ff;
+      /* ✅ BLUE ACCENT (RE INDEX) */
+      --accent: #3E6A9A;
+      --accentHover: #345F89;
+      --accentText: #ffffff;
 
       --max:980px;
       --topbarH:52px;
@@ -37,19 +36,13 @@
 
     *{ box-sizing:border-box; }
 
-    html{ scroll-behavior:smooth; }
-    @media (prefers-reduced-motion: reduce){
-      html{ scroll-behavior:auto; }
-      *{ transition:none !important; }
-    }
-
     body{
       margin:0;
       background: var(--bg);
       color: var(--text);
-      font-family:"Inter",ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
+      font-family:"Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     /* Sticky nav OUTSIDE frame */
@@ -57,7 +50,7 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      background: var(--topbarBg);
+      background: rgba(208,212,218,.92);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--line);
     }
@@ -79,7 +72,7 @@
     }
     .nav a{
       font-size: 13px;
-      color: rgba(231,238,251,.78);
+      color: rgba(15,23,42,.72);
       text-decoration: none;
       font-weight: 650;
       padding: 7px 10px;
@@ -87,12 +80,12 @@
       transition: background .12s ease, color .12s ease;
     }
     .nav a:hover{
-      background: rgba(231,238,251,.08);
-      color: rgba(231,238,251,.92);
+      background: rgba(15,23,42,.08);
+      color: rgba(15,23,42,.92);
     }
     .nav a.active{
-      background: rgba(156,198,255,.16);
-      color: rgba(156,198,255,.98);
+      background: rgba(62,106,154,.18);
+      color: rgba(62,106,154,.98);
     }
 
     /* Frame */
@@ -132,18 +125,18 @@
     /* Big panel */
     .panel{
       margin-top: 18px;
-      background: var(--panelBg);
-      border: 1px solid var(--panelBorder);
+      background: rgba(237,240,244,.95);
+      border: 1px solid rgba(15,23,42,.20);
       border-radius: 14px;
       padding: 18px;
-      box-shadow: var(--panelShadow);
+      box-shadow: 0 18px 46px rgba(15,23,42,.10);
     }
 
     /* Sections: NO divider lines between them */
     .section{ padding: 14px 0; }
     .section:first-child{ padding-top: 0; }
     .section:last-child{ padding-bottom: 0; }
-    .section + .section{ border-top: none; } /* <- removed bullet dividers */
+    .section + .section{ border-top: none; }
 
     h2{
       margin: 0 0 8px 0;
@@ -151,7 +144,7 @@
       letter-spacing: .45px;
       text-transform: uppercase;
       font-weight: 800;
-      color: var(--text);
+      color: rgba(15,23,42,.86);
     }
 
     p, li{
@@ -166,23 +159,23 @@
     ul{
       margin: 10px 0 0 0;
       padding-left: 18px;
+      color: var(--muted);
     }
     ul li{ margin: 6px 0; }
 
     a{
-      color: var(--link);
+      color: rgba(15,23,42,.72);
       font-weight: 800;
       text-decoration: none;
     }
-    a:hover{ text-decoration: underline; }
+    a:hover{ text-decoration: underline; color: rgba(15,23,42,.92); }
 
-    /* Footer: NO bottom-right links */
     .footer{
       margin-top: 18px;
       padding-top: 14px;
-      border-top: 1px solid var(--line);
+      border-top: 1px solid rgba(148,163,184,.45);
       font-size: 13px;
-      color: rgba(148,163,184,.92);
+      color: var(--muted2);
       display:flex;
       align-items:center;
       justify-content:flex-start;
@@ -212,31 +205,84 @@
       <header>
         <h1>Terms of Use</h1>
         <p class="intro">
-          This website is provided for general informational and administrative reference purposes only. By accessing or using this site, you agree to the terms below.
+          These terms govern use of this website and the purchase, access, and internal use of Operational Systems, LLC digital products and platforms (the “Products”).
         </p>
       </header>
 
       <div class="panel" role="region" aria-label="Terms sections">
+
         <div class="section">
-          <h2>Use of Site</h2>
+          <h2>Acceptance of Terms</h2>
           <div class="stack">
             <p>
-              This site is not a consumer-facing platform. No purchases, accounts, transactions, or interactive services are provided through this website.
-            </p>
-            <p>
-              Accessing this site does not create a contractual relationship, advisory relationship, or professional services relationship.
+              By accessing this website or purchasing, accessing, or using any Product, you agree to these Terms of Use.
+              If you do not agree, do not use the site and do not purchase or use the Products.
             </p>
           </div>
         </div>
 
         <div class="section">
-          <h2>No Advice / No Reliance</h2>
+          <h2>Product Description</h2>
           <div class="stack">
             <p>
-              Information on this website is provided “as is” and is not legal, financial, operational, or professional advice. You should not rely on this site as the basis for decisions.
+              Products are structured digital systems, templates, base formats, and supporting documentation intended to support consistent, repeatable execution across marketing, communications, and related operational contexts.
             </p>
             <p>
-              Operational Systems, LLC makes no warranties, express or implied, regarding accuracy, completeness, fitness for a particular purpose, or non-infringement.
+              Products provide structure and standards only. They do not include marketing strategy, lead generation, performance guarantees, or done-for-you services unless explicitly stated in writing at purchase.
+            </p>
+            <p>
+              No representations or guarantees are made regarding business results, income, sales performance, lead generation outcomes, or any specific return on investment. Results depend on individual implementation, market conditions, and external factors beyond our control.
+            </p>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>License &amp; Permitted Use</h2>
+          <div class="stack">
+            <p>
+              Unless otherwise stated at purchase, each Product is licensed for internal use within a single organization. Internal sharing with employees, contractors, agents, or team members within the same organization is permitted.
+            </p>
+            <ul>
+              <li>You may use the Products across your internal campaigns, projects, and contributors within your organization.</li>
+              <li>You may not resell, redistribute, sublicense, publish, or share any Product externally.</li>
+              <li>You may not represent any Product (or any portion of it) as your own product for resale.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>User Content Responsibility</h2>
+          <div class="stack">
+            <p>
+              Any content you create, upload, publish, or distribute using the Products (including text, images, claims, pricing, compliance statements, or advertising content) is your responsibility.
+              You are responsible for ensuring your use complies with applicable laws, regulations, industry rules, brand policies, and platform requirements.
+            </p>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Access &amp; Delivery</h2>
+          <div class="stack">
+            <p>
+              Products are delivered digitally after purchase, typically immediately. Delivery may include links, shared folders, downloads, or other digital access mechanisms required to provide the Product.
+            </p>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Refund Policy</h2>
+          <div class="stack">
+            <p>
+              Because Products are digital and delivered immediately upon purchase, all sales are final and non-refundable unless otherwise required by law.
+            </p>
+            <p>
+              By purchasing a Product, you acknowledge and agree that access is provided electronically and typically immediately after payment. Due to the nature of digital delivery, you waive any right to cancel or request a refund once access has been granted.
+            </p>
+            <p>
+              By completing your purchase, you agree not to initiate chargebacks or payment disputes except in cases of unauthorized transactions.
+            </p>
+            <p>
+              Charges will appear on your billing statement as OPERATIONAL SYSTEMS.
             </p>
           </div>
         </div>
@@ -245,19 +291,18 @@
           <h2>Intellectual Property</h2>
           <div class="stack">
             <p>
-              All content on this website—including text, layouts, design elements, and underlying structures—is owned by Operational Systems, LLC unless otherwise stated.
-            </p>
-            <p>
-              Unauthorized reproduction, redistribution, publication, or derivative use is not permitted.
+              The Products and all associated materials are owned by Operational Systems, LLC and are protected by intellectual property laws.
+              No ownership rights are transferred to you.
             </p>
           </div>
         </div>
 
         <div class="section">
-          <h2>Third-Party Links</h2>
+          <h2>Disclaimer of Warranties</h2>
           <div class="stack">
             <p>
-              If this website links to third-party websites, those links are provided for convenience only. Operational Systems, LLC is not responsible for third-party content, policies, or practices.
+              The site and Products are provided “as is” and “as available.” We make no warranties of any kind, express or implied,
+              including warranties of merchantability, fitness for a particular purpose, or non-infringement.
             </p>
           </div>
         </div>
@@ -266,16 +311,10 @@
           <h2>Limitation of Liability</h2>
           <div class="stack">
             <p>
-              Operational Systems, LLC shall not be liable for any direct, indirect, incidental, consequential, or other damages arising from the use of or inability to use this website.
+              To the fullest extent permitted by law, Operational Systems, LLC will not be liable for any indirect, incidental, consequential, special, exemplary, or punitive damages, including loss of profits, loss of revenue, loss of data, business interruption, or goodwill, arising out of or related to your use of the site or Products.
             </p>
-          </div>
-        </div>
-
-        <div class="section">
-          <h2>Governing Law</h2>
-          <div class="stack">
             <p>
-              These Terms are governed by the laws of the jurisdiction in which Operational Systems, LLC is organized, without regard to conflict-of-law principles.
+              In no event shall the total liability of Operational Systems, LLC exceed the amount paid by you for the applicable Product.
             </p>
           </div>
         </div>
@@ -284,19 +323,20 @@
           <h2>Changes to These Terms</h2>
           <div class="stack">
             <p>
-              We may update these Terms from time to time. Continued use of the site after changes become effective constitutes acceptance of the updated Terms.
+              We may update these Terms from time to time. Continued use of the site or Products after changes become effective constitutes acceptance of the updated Terms.
             </p>
           </div>
         </div>
 
         <div class="section">
-          <h2>Scope</h2>
+          <h2>Contact</h2>
           <div class="stack">
             <p>
-              These Terms govern use of this website only. Independently branded platforms operated by the company may publish their own supplemental terms as appropriate.
+              Questions about these Terms may be directed to Operational Systems, LLC. Contact details are provided on this website.
             </p>
           </div>
         </div>
+
       </div>
 
       <div class="footer">
