@@ -13,53 +13,45 @@
 
   <style>
     :root{
-      /* Dark theme (match Terms) */
-      --bgTop:#0b1220;
-      --bg:#0f172a;
+      /* ✅ MATCH RE INDEX SYSTEM */
+      --bg: #d0d4da;
+      --frame: #edf0f4;
+      --frameBorder: rgba(15, 23, 42, 0.35);
+      --frameShadow: 0 32px 90px rgba(15, 23, 42, 0.22);
 
-      --frame:#111827;
-      --frameBorder:rgba(148,163,184,.18);
-      --frameShadow:0 28px 80px rgba(0,0,0,.45);
+      --text: #0f172a;
+      --muted: #475569;
+      --muted2:#64748b;
 
-      --panelBg:#0f172a;
-      --panelBorder:rgba(148,163,184,.18);
-      --panelShadow:0 14px 34px rgba(0,0,0,.28);
+      --line: rgba(148,163,184,.45);
 
-      --text:#e5e7eb;
-      --muted:#a7b0bf;
-      --muted2:#94a3b8;
-
-      --divider:rgba(148,163,184,.18);
-
-      --link:rgba(226,232,240,.85);
-      --linkHover:rgba(226,232,240,.98);
+      /* Accent (used for nav active only) */
+      --accent: #3E6A9A;
+      --accentHover: #345F89;
+      --accentText: #ffffff;
 
       --max:980px;
-
-      /* KEEP: matches your panel width */
       --contentMax:900px;
-
       --topbarH:52px;
-      --line:rgba(148,163,184,.18);
     }
 
     *{ box-sizing:border-box; }
 
     body{
       margin:0;
-      background: linear-gradient(180deg, var(--bgTop), var(--bg));
+      background: var(--bg);
       color:var(--text);
-      font-family:"Inter",ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
+      font-family:"Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    /* Top nav OUTSIDE the frame (match Terms) */
+    /* Sticky nav (match RE index exactly) */
     .topbar{
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(15,23,42,.82);
+      background: rgba(208,212,218,.92);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--line);
     }
@@ -74,7 +66,7 @@
     }
     .nav{
       display:flex;
-      gap:14px;
+      gap: 8px 14px;
       align-items:center;
       justify-content:center;
       flex-wrap:wrap;
@@ -82,19 +74,19 @@
     .nav a{
       font-size: 13px;
       font-weight: 650;
-      color: rgba(226,232,240,.78);
+      color: rgba(15,23,42,.72);
       text-decoration: none;
       padding: 7px 10px;
       border-radius: 999px;
       transition: background .12s ease, color .12s ease;
     }
     .nav a:hover{
-      background: rgba(226,232,240,.10);
-      color: rgba(226,232,240,.95);
+      background: rgba(15,23,42,.08);
+      color: rgba(15,23,42,.92);
     }
     .nav a.active{
-      background: rgba(226,232,240,.14);
-      color: rgba(226,232,240,.98);
+      background: rgba(62,106,154,.18);
+      color: rgba(62,106,154,.98);
     }
 
     .page-frame{
@@ -110,7 +102,7 @@
     .wrap{ padding:26px 26px 38px; }
 
     header{
-      text-align:center; /* keep title centered */
+      text-align:center;
       margin-top: 2px;
     }
 
@@ -123,7 +115,7 @@
       color: var(--text);
     }
 
-    /* Keep the System Index-style layout container you already implemented */
+    /* Preserve your layout width */
     .hero-text{
       max-width: var(--contentMax);
       margin: 0 auto;
@@ -140,17 +132,17 @@
     }
     .lead + .lead{ margin-top:12px; }
 
+    /* Convert panel to light theme */
     .panel{
       margin:18px auto 0;
       max-width: var(--contentMax);
-      background:var(--panelBg);
-      border:1px solid var(--panelBorder);
+      background: rgba(237,240,244,.95);
+      border:1px solid rgba(15,23,42,.20);
       border-radius:14px;
       padding:18px;
-      box-shadow:var(--panelShadow);
+      box-shadow: 0 18px 46px rgba(15,23,42,.10);
     }
 
-    /* No dividers between sections */
     .section{ padding: 14px 0; }
     .section:first-child{ padding-top: 0; }
     .section:last-child{ padding-bottom: 0; }
@@ -161,7 +153,7 @@
       letter-spacing:.45px;
       text-transform:uppercase;
       font-weight:800;
-      color: rgba(226,232,240,.92);
+      color: rgba(15,23,42,.86);
     }
 
     .meta{
@@ -174,7 +166,7 @@
     .footer{
       margin-top:40px;
       padding-top:18px;
-      border-top:1px solid var(--divider);
+      border-top:1px solid rgba(148,163,184,.45);
       font-size:13px;
       color:var(--muted2);
     }
@@ -189,8 +181,7 @@
 </head>
 
 <body>
-  <!-- Nav outside the frame -->
-  <div class="topbar" id="topbar">
+  <div class="topbar">
     <div class="topbar-inner">
       <nav class="nav" aria-label="Primary navigation">
         <a href="/index.html">Home</a>
