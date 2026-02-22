@@ -13,26 +13,15 @@
 
   <style>
     :root{
-      /* ✅ LIGHT THEME (match RE Terms styling) */
       --bg:#d0d4da;
       --frame:#edf0f4;
       --frameBorder:rgba(15, 23, 42, 0.35);
       --frameShadow:0 32px 90px rgba(15, 23, 42, 0.22);
 
-      /* Panel (map OS panel to same light system) */
-      --panelBg:#edf0f4;
-      --panelBorder:rgba(15, 23, 42, 0.20);
-      --panelShadow:0 18px 46px rgba(15, 23, 42, 0.10);
-
       --text:#0f172a;
       --muted:#475569;
       --muted2:#64748b;
-
-      --divider:rgba(148,163,184,.28);
       --line:rgba(148,163,184,.28);
-
-      --link:rgba(15,23,42,.72);
-      --linkHover:rgba(15,23,42,.92);
 
       --max:980px;
       --topbarH:52px;
@@ -42,52 +31,53 @@
 
     body{
       margin:0;
-      background: var(--bg);
+      background:var(--bg);
       color:var(--text);
-      font-family:"Inter",ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
     }
 
-    /* Nav outside the frame (match RE Terms) */
     .topbar{
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(208,212,218,.92);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--line);
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(208,212,218,.92);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--line);
     }
+
     .topbar-inner{
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 8px 18px;
-      min-height: var(--topbarH);
+      max-width:var(--max);
+      margin:0 auto;
+      padding:8px 18px;
+      min-height:var(--topbarH);
       display:flex;
-      align-items:center;
       justify-content:center;
+      align-items:center;
     }
+
     .nav{
       display:flex;
       gap:14px;
-      align-items:center;
-      justify-content:center;
-      flex-wrap:wrap;
     }
+
     .nav a{
-      font-size: 13px;
-      font-weight: 650;
-      color: rgba(15,23,42,.72);
-      text-decoration: none;
-      padding: 7px 10px;
-      border-radius: 999px;
-      transition: background .12s ease, color .12s ease;
+      font-size:13px;
+      font-weight:650;
+      color:rgba(15,23,42,.72);
+      text-decoration:none;
+      padding:7px 10px;
+      border-radius:999px;
+      transition:background .12s ease, color .12s ease;
     }
+
     .nav a:hover{
-      background: rgba(15,23,42,.08);
-      color: rgba(15,23,42,.92);
+      background:rgba(15,23,42,.08);
+      color:rgba(15,23,42,.92);
     }
+
     .nav a.active{
-      background: rgba(15,118,110,.16);
-      color: rgba(15,118,110,.98);
+      background:rgba(15,23,42,.10);
+      color:rgba(15,23,42,.92);
     }
 
     .page-frame{
@@ -97,145 +87,99 @@
       border:1px solid var(--frameBorder);
       border-radius:20px;
       box-shadow:var(--frameShadow);
-      overflow:clip;
     }
 
-    .wrap{ padding:26px 26px 38px; }
+    .wrap{
+      padding:22px 24px 38px;
+    }
 
-    header{ text-align:center; margin-top:8px; }
+    header{
+      text-align:center;
+      margin-bottom:28px;
+    }
 
     h1{
-      margin:0 0 18px;
       font-size:46px;
-      line-height:1.06;
-      letter-spacing:-1px;
       font-weight:800;
-      color: var(--text);
+      margin:0 0 12px 0;
     }
 
-    /* HERO */
-    .hero-blocks{
-      max-width:none;
-      margin:0 0 18px;
-      text-align:left;
-    }
-
-    .lead{
-      margin:0 0 12px;
+    section{
       max-width:78ch;
-      font-size:17px;
-      line-height:1.65;
-      color:var(--muted);
-      font-weight:500;
-      text-wrap:pretty;
+      margin:34px auto 0;
     }
 
-    .panel{
-      background:var(--panelBg);
-      border:1px solid var(--panelBorder);
-      border-radius:14px;
-      padding:18px;
-      box-shadow:var(--panelShadow);
-    }
-
-    .panel h2{
-      margin:0 0 12px;
-      font-size:14px;
-      letter-spacing:.45px;
-      text-transform:uppercase;
+    h2{
+      font-size:20px;
       font-weight:800;
-      color: rgba(15,23,42,.86);
+      text-align:center;
+      margin-bottom:14px;
       position:relative;
-      padding-bottom:10px;
     }
-    .panel h2::after{
+
+    h2::after{
       content:"";
-      position:absolute;
-      left:0;
-      bottom:0;
-      width:96px;
+      display:block;
+      width:110px;
       height:1px;
-      background:var(--divider);
+      margin:10px auto 0;
+      background:var(--line);
       border-radius:999px;
     }
 
-    .bullets{
-      margin:0;
+    p, li{
+      font-size:15px;
+      line-height:1.75;
+      color:var(--muted);
+    }
+
+    ul{
       padding-left:18px;
-      font-size:15px;
-      line-height:1.68;
-      color:var(--muted);
-    }
-    .bullets li{ margin:6px 0; }
-
-    .kv{
-      display:grid;
-      grid-template-columns:170px 1fr;
-      gap:10px 16px;
-    }
-    .k{
-      font-size:13px;
-      font-weight:600;
-      color: rgba(15,23,42,.62);
-    }
-    .v{
-      font-size:13px;
-      font-weight:600;
-      color: rgba(15,23,42,.86);
+      margin-top:10px;
     }
 
-    .grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:16px;
-      margin-top:16px;
-    }
-
-    .meta{
-      margin:0;
-      font-size:15px;
-      line-height:1.65;
-      color:var(--muted);
-    }
-
-    a{
-      color:var(--link);
-      font-weight:800;
-      text-decoration:none;
-      transition: color .12s ease;
-    }
-    a:hover{
-      text-decoration:underline;
-      color:var(--linkHover);
+    .divider{
+      margin:32px auto;
+      height:1px;
+      background:var(--line);
+      max-width:78ch;
     }
 
     .footer{
-      margin-top:40px;
+      margin-top:56px;
       padding-top:18px;
       border-top:1px solid rgba(148,163,184,.45);
-      font-size:13px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px 18px;
+      justify-content:space-between;
+      align-items:center;
       color:var(--muted2);
+      font-size:13px;
     }
 
-    @media (max-width:900px){
-      .grid{ grid-template-columns:1fr; }
-      .kv{ grid-template-columns:1fr; }
-      .lead{ max-width:100%; }
+    .footer a{
+      color:rgba(15,23,42,.72);
+      text-decoration:none;
+      font-weight:800;
+      margin-right:14px;
     }
 
-    @media (max-width:820px){
-      h1{ font-size:32px; }
-      .wrap{ padding:18px 16px 86px; }
+    .footer a:last-child{
+      margin-right:0;
+    }
+
+    .footer a:hover{
+      text-decoration:underline;
     }
   </style>
 </head>
 
 <body>
-  <!-- Nav outside the frame -->
-  <div class="topbar" id="topbar">
+  <div class="topbar">
     <div class="topbar-inner">
-      <nav class="nav" aria-label="Primary navigation">
-        <a class="active" aria-current="page" href="/index.html">Home</a>
+      <nav class="nav">
+        <a class="active" href="/index.html">Home</a>
         <a href="/privacy.html">Privacy</a>
         <a href="/terms.html">Terms</a>
       </nav>
@@ -249,50 +193,58 @@
         <h1>Operational Systems, LLC</h1>
       </header>
 
-      <div class="hero-blocks">
-        <p class="lead">Operational Systems, LLC develops and maintains structured digital systems designed to support consistent execution across marketing, communications, and related operational contexts.</p>
-        <p class="lead">These systems are designed for long-term organizational use, supporting continuity and consistency across teams and initiatives.</p>
-        <p class="lead" style="margin-bottom:0;">The company focuses on system design and governance rather than creative services or custom implementation. Solutions are delivered through independently branded platforms aligned to specific industries, and this website is maintained for general informational and administrative purposes.</p>
-      </div>
+      <section>
+        <p>
+          Operational Systems, LLC develops and maintains structured digital systems designed to support consistent execution across marketing, communications, and related operational contexts.
+        </p>
+        <p>
+          These systems are designed for long-term organizational use, supporting continuity and consistency across teams and initiatives.
+        </p>
+        <p>
+          The company focuses on system design and governance rather than creative services or custom implementation. Solutions are delivered through independently branded platforms aligned to specific industries, and this website is maintained for general informational and administrative purposes.
+        </p>
+      </section>
 
-      <!-- ONE BIG BOX (Policies block removed; Contact stays in same visual area) -->
-      <div class="panel">
+      <div class="divider"></div>
+
+      <section>
         <h2>Operating Model</h2>
-        <ul class="bullets">
+        <ul>
           <li>Systems are designed as standardized frameworks intended for long-term organizational use.</li>
           <li>Work focuses on structure, repeatability, and governance rather than creative services or custom campaigns.</li>
           <li>Each system is delivered as a complete, independently branded platform aligned to a specific industry use case.</li>
           <li>Products are intended to operate as internal execution infrastructure.</li>
           <li>This site is maintained for administrative reference, policy disclosure, and entity verification.</li>
         </ul>
+      </section>
 
-        <div style="height:18px;"></div>
+      <div class="divider"></div>
 
+      <section>
         <h2>Company Summary</h2>
-        <div class="kv">
-          <div class="k">Entity</div><div class="v">Operational Systems, LLC</div>
-          <div class="k">Entity Type</div><div class="v">Limited Liability Company (LLC)</div>
-          <div class="k">Business Type</div><div class="v">Digital systems, templates &amp; operational assets</div>
-          <div class="k">Purpose</div><div class="v">Administrative reference &amp; verification</div>
-          <div class="k">Distribution</div><div class="v">Independently branded websites</div>
-          <div class="k">Public sales</div><div class="v">Not offered on this site</div>
-        </div>
+        <p><strong>Entity:</strong> Operational Systems, LLC</p>
+        <p><strong>Entity Type:</strong> Limited Liability Company (LLC)</p>
+        <p><strong>Business Type:</strong> Digital systems, templates &amp; operational assets</p>
+        <p><strong>Purpose:</strong> Administrative reference &amp; verification</p>
+        <p><strong>Distribution:</strong> Independently branded websites</p>
+        <p><strong>Public sales:</strong> Not offered on this site</p>
+      </section>
 
-        <div style="height:18px;"></div>
+      <div class="divider"></div>
 
-        <!-- Contact stays in the same general visual location; Policies removed -->
-        <div class="grid">
-          <div>
-            <h2>Contact</h2>
-            <p class="meta"><strong>Email:</strong> <a href="mailto:admin@operational-systems.com">admin@operational-systems.com</a></p>
-            <p class="meta" style="margin-top:8px;">Administrative inquiries.</p>
-            <p class="meta" style="margin-top:6px;">Response time: 1–2 business days.</p>
-          </div>
-        </div>
-      </div>
+      <section>
+        <h2>Contact</h2>
+        <p><strong>Email:</strong> <a href="mailto:admin@operational-systems.com">admin@operational-systems.com</a></p>
+        <p>Administrative inquiries.</p>
+        <p>Response time: 1–2 business days.</p>
+      </section>
 
       <div class="footer">
-        © Operational Systems, LLC. All rights reserved.
+        <div>© Operational Systems, LLC</div>
+        <div>
+          <a href="/privacy.html">Privacy</a>
+          <a href="/terms.html">Terms</a>
+        </div>
       </div>
 
     </div>
