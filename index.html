@@ -13,27 +13,26 @@
 
   <style>
     :root{
-      /* Dark theme (match updated Privacy) */
-      --bgTop:#0b1220;
-      --bg:#0f172a;
+      /* ✅ LIGHT THEME (match RE Terms styling) */
+      --bg:#d0d4da;
+      --frame:#edf0f4;
+      --frameBorder:rgba(15, 23, 42, 0.35);
+      --frameShadow:0 32px 90px rgba(15, 23, 42, 0.22);
 
-      --frame:#111827;
-      --frameBorder:rgba(148,163,184,.18);
-      --frameShadow:0 28px 80px rgba(0,0,0,.45);
+      /* Panel (map OS panel to same light system) */
+      --panelBg:#edf0f4;
+      --panelBorder:rgba(15, 23, 42, 0.20);
+      --panelShadow:0 18px 46px rgba(15, 23, 42, 0.10);
 
-      --panelBg:#0f172a;
-      --panelBorder:rgba(148,163,184,.18);
-      --panelShadow:0 14px 34px rgba(0,0,0,.28);
+      --text:#0f172a;
+      --muted:#475569;
+      --muted2:#64748b;
 
-      --text:#e5e7eb;
-      --muted:#a7b0bf;
-      --muted2:#94a3b8;
+      --divider:rgba(148,163,184,.28);
+      --line:rgba(148,163,184,.28);
 
-      --divider:rgba(148,163,184,.18);
-      --line:rgba(148,163,184,.18);
-
-      --link:rgba(226,232,240,.85);
-      --linkHover:rgba(226,232,240,.98);
+      --link:rgba(15,23,42,.72);
+      --linkHover:rgba(15,23,42,.92);
 
       --max:980px;
       --topbarH:52px;
@@ -43,19 +42,17 @@
 
     body{
       margin:0;
-      background: linear-gradient(180deg, var(--bgTop), var(--bg));
+      background: var(--bg);
       color:var(--text);
       font-family:"Inter",ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
     }
 
-    /* Nav outside the frame (match Privacy/Terms) */
+    /* Nav outside the frame (match RE Terms) */
     .topbar{
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(15,23,42,.82);
+      background: rgba(208,212,218,.92);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--line);
     }
@@ -78,19 +75,19 @@
     .nav a{
       font-size: 13px;
       font-weight: 650;
-      color: rgba(226,232,240,.78);
+      color: rgba(15,23,42,.72);
       text-decoration: none;
       padding: 7px 10px;
       border-radius: 999px;
       transition: background .12s ease, color .12s ease;
     }
     .nav a:hover{
-      background: rgba(226,232,240,.10);
-      color: rgba(226,232,240,.95);
+      background: rgba(15,23,42,.08);
+      color: rgba(15,23,42,.92);
     }
     .nav a.active{
-      background: rgba(226,232,240,.14);
-      color: rgba(226,232,240,.98);
+      background: rgba(15,118,110,.16);
+      color: rgba(15,118,110,.98);
     }
 
     .page-frame{
@@ -147,7 +144,7 @@
       letter-spacing:.45px;
       text-transform:uppercase;
       font-weight:800;
-      color: rgba(226,232,240,.92);
+      color: rgba(15,23,42,.86);
       position:relative;
       padding-bottom:10px;
     }
@@ -179,12 +176,12 @@
     .k{
       font-size:13px;
       font-weight:600;
-      color: rgba(148,163,184,.85);
+      color: rgba(15,23,42,.62);
     }
     .v{
       font-size:13px;
       font-weight:600;
-      color: rgba(226,232,240,.92);
+      color: rgba(15,23,42,.86);
     }
 
     .grid{
@@ -215,7 +212,7 @@
     .footer{
       margin-top:40px;
       padding-top:18px;
-      border-top:1px solid var(--divider);
+      border-top:1px solid rgba(148,163,184,.45);
       font-size:13px;
       color:var(--muted2);
     }
