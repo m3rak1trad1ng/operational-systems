@@ -13,6 +13,7 @@
 
   <style>
     :root{
+      /* ✅ MATCH RE INDEX (Option 5 — Neutral Graphite) */
       --bg: #d0d4da;
       --frame: #edf0f4;
       --frameBorder: rgba(15, 23, 42, 0.35);
@@ -21,21 +22,31 @@
       --text: #0f172a;
       --muted: #475569;
       --muted2:#64748b;
-      --line: rgba(148,163,184,.28); /* softened */
 
-      --max: 980px;
-      --topbarH: 52px;
+      /* ✅ MATCH RE INDEX (note: .45, not .28) */
+      --line: rgba(148,163,184,.45);
+
+      /* ✅ MATCH RE INDEX BLUE ACCENT */
+      --accent: #3E6A9A;
+      --accentHover: #345F89;
+      --accentText: #ffffff;
+
+      --max:980px;
+      --topbarH:52px;
     }
 
-    *{ box-sizing: border-box; }
+    *{ box-sizing:border-box; }
 
     body{
-      margin: 0;
+      margin:0;
       background: var(--bg);
-      color: var(--text);
-      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:var(--text);
+      font-family:"Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
+    /* Nav outside the frame (match RE index) */
     .topbar{
       position: sticky;
       top: 0;
@@ -44,25 +55,22 @@
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--line);
     }
-
     .topbar-inner{
       max-width: var(--max);
       margin: 0 auto;
       padding: 8px 18px;
       min-height: var(--topbarH);
       display:flex;
-      justify-content:center;
       align-items:center;
+      justify-content:center;
     }
-
     .nav{
       display:flex;
-      gap: 14px;
+      gap: 8px 14px;
       align-items:center;
       justify-content:center;
       flex-wrap:wrap;
     }
-
     .nav a{
       font-size: 13px;
       font-weight: 650;
@@ -72,32 +80,25 @@
       border-radius: 999px;
       transition: background .12s ease, color .12s ease;
     }
-
     .nav a:hover{
       background: rgba(15,23,42,.08);
       color: rgba(15,23,42,.92);
     }
-
+    /* ✅ MATCH RE INDEX ACTIVE (blue) */
     .nav a.active{
-      background: rgba(15,118,110,.16);
-      color: rgba(15,118,110,.98);
+      background: rgba(62,106,154,.18);
+      color: rgba(62,106,154,.98);
     }
 
     .page-frame{
-      max-width: var(--max);
-      margin: 16px auto 28px;
-      background: var(--frame);
-      border: 1px solid var(--frameBorder);
-      border-radius: 20px;
-      box-shadow: var(--frameShadow);
-      overflow: clip;
+      max-width:var(--max);
+      margin:16px auto 28px;
+      background:var(--frame);
+      border:1px solid var(--frameBorder);
+      border-radius:20px;
+      box-shadow:var(--frameShadow);
+      overflow:clip;
     }
-
-    /* -----------------------------
-       OS-specific classes
-       (kept to preserve OS spacing/layout)
-       while using RE palette/tokens
-    ------------------------------ */
 
     .wrap{ padding:26px 26px 38px; }
 
@@ -112,13 +113,12 @@
       color: var(--text);
     }
 
+    /* HERO (unchanged spacing/rhythm) */
     .hero-blocks{
       max-width:none;
       margin:0 0 18px;
       text-align:left;
     }
-
-    /* keep your original OS rhythm (not RE paragraph rhythm) */
     .lead{
       margin:0 0 12px;
       max-width:78ch;
@@ -129,15 +129,15 @@
       text-wrap:pretty;
     }
 
+    /* Panel mapped to light palette, but keep OS layout */
     .panel{
-      background: var(--frame);
+      background: rgba(237,240,244,.95);
       border: 1px solid rgba(15, 23, 42, 0.20);
       border-radius:14px;
       padding:18px;
       box-shadow: 0 18px 46px rgba(15, 23, 42, 0.10);
     }
 
-    /* keep your OS panel header style (left aligned, uppercase) */
     .panel h2{
       margin:0 0 12px;
       font-size:14px;
@@ -191,7 +191,6 @@
       margin-top:16px;
     }
 
-    /* keep OS meta spacing (avoid “double spaced” look) */
     .meta{
       margin:0;
       font-size:15px;
@@ -199,7 +198,18 @@
       color:var(--muted);
     }
 
-    /* match RE footer link styling exactly */
+    /* Keep your original OS link styling so mailto isn’t browser-blue */
+    a{
+      color: rgba(15,23,42,.72);
+      font-weight:800;
+      text-decoration:none;
+      transition: color .12s ease;
+    }
+    a:hover{
+      text-decoration:underline;
+      color: rgba(15,23,42,.92);
+    }
+
     .footer{
       margin-top:40px;
       padding-top:18px;
